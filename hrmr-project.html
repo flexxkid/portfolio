@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GardaWorld HRMS — Timothy K. Mule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">TKM.dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy@example.com" class="nav-cta">Hire Me</a>
+  </nav>
+
+  <!-- PROJECT DETAIL -->
+  <div class="project-hero">
+
+    <!-- BACK -->
+    <a href="index.html" class="back-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Portfolio
+    </a>
+
+    <!-- HEADER -->
+    <div class="project-page-tag">Featured Project</div>
+
+    <h1 class="project-page-title">
+      GardaWorld<br><span>HR Management System</span>
+    </h1>
+
+    <p class="project-page-subtitle">
+      Digitizing HR operations for Kenya's leading security firm — from paper filing cabinets to a secure, centralized digital platform.
+    </p>
+
+    <!-- META -->
+    <div class="project-meta-row">
+      <div class="project-meta-item">
+        <span class="meta-label">Client</span>
+        <span class="meta-value">GardaWorld Security Kenya</span>
+      </div>
+      <div class="project-meta-item">
+        <span class="meta-label">Stack</span>
+        <span class="meta-value">Laravel · React · MySQL · AWS S3</span>
+      </div>
+      <div class="project-meta-item">
+        <span class="meta-label">Type</span>
+        <span class="meta-value">Final Year Project</span>
+      </div>
+      <div class="project-meta-item">
+        <span class="meta-label">Status</span>
+        <span class="meta-value" style="color: var(--gold);">In Progress — 2025</span>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="project-body">
+
+      <!-- PROBLEM -->
+      <div class="section-block">
+        <span class="section-number">01 — The Problem</span>
+        <h2 class="section-title">Thousands of records. Zero digital infrastructure.</h2>
+        <p class="section-text">
+          GardaWorld Security Kenya manages a large, distributed workforce of security personnel
+          deployed across multiple branches. Every employee record — qualifications, licences,
+          deployment history, training completions — was stored in <strong>physical paper folders</strong>
+          inside filing cabinets.
+        </p>
+        <p class="section-text">
+          Retrieving a single file took between <strong>5 to 15 minutes</strong>. Records were misfiled,
+          damaged, or lost. Sharing information between branches required physically moving folders
+          or making photocopies. There was no access control — anyone with physical access to
+          the cabinet could read or modify sensitive employee data.
+        </p>
+        <p class="section-text">
+          As the organisation's workforce grew, these inefficiencies compounded. The HR department
+          was spending the majority of its time on administrative search tasks instead of
+          strategic workforce planning.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SOLUTION -->
+      <div class="section-block">
+        <span class="section-number">02 — The Solution</span>
+        <h2 class="section-title">A secure, centralized HRMS built for security operations.</h2>
+        <p class="section-text">
+          I designed and am developing a custom Human Resource Management System tailored
+          specifically to GardaWorld's operational structure — not a generic off-the-shelf tool,
+          but a platform built around how a security company actually works.
+        </p>
+        <p class="section-text">
+          The system is built on a <strong>three-tier architecture</strong>: a React frontend,
+          a Laravel REST API backend, a MySQL relational database, and AWS S3 for secure
+          document storage. Role-based access control ensures that HR officers, supervisors,
+          and administrators each see only what they are permitted to access.
+        </p>
+
+        <ul class="objective-list">
+          <li>Employee profile management with full document upload and retrieval</li>
+          <li>Recruitment and applicant tracking module with status notifications</li>
+          <li>Attendance and leave management with supervisor approval workflows</li>
+          <li>Payroll processing module with automated net salary calculation</li>
+          <li>Training and performance evaluation tracking</li>
+          <li>Audit logs recording every record access and modification</li>
+          <li>Multi-branch support with centralized data access</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECURITY ANGLE -->
+      <div class="section-block">
+        <span class="section-number">03 — Security Considerations</span>
+        <h2 class="section-title">Built with cybersecurity at the foundation.</h2>
+        <p class="section-text">
+          Employee records in a security firm are extremely sensitive — national IDs, clearance
+          letters, disciplinary files, and salary information. My background in
+          <strong>networking and cybersecurity</strong> directly informed how this system was designed.
+        </p>
+        <p class="section-text">
+          Every API endpoint is authenticated via Laravel Sanctum. Documents are stored in
+          private AWS S3 buckets with signed URLs for time-limited access. Input validation
+          guards against SQL injection and XSS. Database access is role-scoped so no single
+          user has unrestricted access to the full dataset.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- OUTCOMES -->
+      <div class="section-block">
+        <span class="section-number">04 — Target Outcomes</span>
+        <h2 class="section-title">Measurable improvements over the manual system.</h2>
+
+        <div class="outcome-grid">
+          <div class="outcome-item">
+            <div class="outcome-value">50%</div>
+            <div class="outcome-label">Reduction in record search time</div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-value">&lt;5s</div>
+            <div class="outcome-label">Employee record retrieval target</div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-value">90%</div>
+            <div class="outcome-label">Task completion rate in user testing</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- STACK -->
+      <div class="section-block">
+        <span class="section-number">05 — Tech Stack</span>
+        <h2 class="section-title">Technologies used.</h2>
+        <div class="stack-pills" style="margin-top: 0.5rem;">
+          <span class="pill">Laravel (PHP)</span>
+          <span class="pill">React</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">AWS S3</span>
+          <span class="pill">REST API</span>
+          <span class="pill">Laravel Sanctum</span>
+          <span class="pill">PHPUnit</span>
+          <span class="pill">Jest</span>
+          <span class="pill">Postman</span>
+          <span class="pill">Git</span>
+          <span class="pill">Draw.io</span>
+          <span class="pill">XAMPP</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
