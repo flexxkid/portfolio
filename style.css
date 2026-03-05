@@ -426,7 +426,14 @@ nav {
     padding-bottom: 4rem;
   }
   .hero-right { padding-top: 0; }
-  .corner-mark { display: none; }
+  .corner-mark {
+  position: static;
+  writing-mode: horizontal-tb;
+  font-size: 0.65rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  opacity: 0.5;
+}
   .scroll-hint { display: none; }
 }
  
