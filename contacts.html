@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Timothy K. Mule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">TKM.dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="contact.html" style="color: var(--green-bright);">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy@example.com" class="nav-cta">Hire Me</a>
+
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile">
+  <ul class="nav-mobile-links">
+    <li><a href="index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="index.html#projects" onclick="closeMobileNav()">Projects</a></li>
+    <li><a href="index.html#skills" onclick="closeMobileNav()">Skills</a></li>
+    <li><a href="contacts.html" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <a href="mailto:timothy@example.com" class="nav-cta">Hire Me</a>
+</div>
+  </nav>
+
+  <!-- CONTACT PAGE WRAPPER -->
+  <div class="contact-page">
+
+    <!-- BACK LINK -->
+    <a href="index.html" class="back-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Portfolio
+    </a>
+
+    <!-- PAGE HEADER -->
+    <div class="contact-header">
+      <div class="hero-tag">Get In Touch</div>
+      <h1 class="contact-title">
+        Let's build something<br><span>that matters.</span>
+      </h1>
+      <p class="contact-intro">
+        Whether you have a project in mind, a problem that needs solving, or simply
+        want to explore what's possible — I'm straightforward to reach and quick to respond.
+      </p>
+    </div>
+
+    <!-- TWO COLUMN LAYOUT -->
+    <div class="contact-grid">
+
+      <!-- LEFT — FORM -->
+      <div class="contact-form-col">
+        <div class="stack-label">Send a Message</div>
+
+        <div class="contact-form">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Your Name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="John Kamau" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="john@company.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" name="subject" placeholder="Web application for my business" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="budget">Budget Range (Optional)</label>
+            <select class="form-input form-select" id="budget" name="budget">
+              <option value="" disabled selected>Select a range</option>
+              <option value="small">Under KSh 50,000</option>
+              <option value="medium">KSh 50,000 — 150,000</option>
+              <option value="large">KSh 150,000 — 500,000</option>
+              <option value="enterprise">KSh 500,000+</option>
+              <option value="discuss">Prefer to discuss</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-input form-textarea" id="message" name="message" placeholder="Tell me about your project — what you're building, what problem it solves, and what you need from a developer..."></textarea>
+          </div>
+
+          <button type="button" class="btn-primary form-submit">
+            Send Message
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- RIGHT — CONTACT INFO -->
+      <div class="contact-info-col">
+
+        <!-- AVAILABILITY -->
+        <div class="availability">
+          <span class="dot"></span>
+          Available for new projects
+        </div>
+
+        <!-- DIRECT CONTACTS -->
+        <div class="contact-info-card">
+          <div class="stack-label">Direct Contact</div>
+
+          <a href="mailto:timothy@example.com" class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Email</span>
+              <span class="contact-info-value">timothy@example.com</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/254700000000" target="_blank" class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.4a16 16 0 006.69 6.69l1.27-.54a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">WhatsApp</span>
+              <span class="contact-info-value">+254 700 000 000</span>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/timothymule" target="_blank" class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">LinkedIn</span>
+              <span class="contact-info-value">linkedin.com/in/timothymule</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/timothymule" target="_blank" class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">GitHub</span>
+              <span class="contact-info-value">github.com/timothymule</span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- RESPONSE TIME -->
+        <div class="contact-info-card">
+          <div class="stack-label">What to Expect</div>
+          <ul class="expect-list">
+            <li>
+              <span class="expect-dot"></span>
+              Response within 24 hours on weekdays
+            </li>
+            <li>
+              <span class="expect-dot"></span>
+              Free initial consultation to scope the project
+            </li>
+            <li>
+              <span class="expect-dot"></span>
+              Clear timeline and cost estimate before any work begins
+            </li>
+            <li>
+              <span class="expect-dot"></span>
+              Regular progress updates throughout the build
+            </li>
+          </ul>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="contact-location">
+          <span class="stack-label">Based In</span>
+          <span class="location-value">Nairobi, Kenya — Open to remote work</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>

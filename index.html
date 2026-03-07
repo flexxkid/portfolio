@@ -18,9 +18,26 @@
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="contacts.html">Contact</a></li>
     </ul>
     <a href="test-card.html" class="nav-cta">Hire Me</a>
+
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile">
+  <ul class="nav-mobile-links">
+    <li><a href="index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="index.html#projects" onclick="closeMobileNav()">Projects</a></li>
+    <li><a href="index.html#skills" onclick="closeMobileNav()">Skills</a></li>
+    <li><a href="contacts.html" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <a href="mailto:timothy@example.com" class="nav-cta">Hire Me</a>
+</div>
   </nav>
 
   <!-- HERO -->
@@ -45,7 +62,7 @@
         </p>
 
       <div class="hero-actions">
-        <a href="#projects" class="btn-primary">
+        <a href="contacts.html" class="btn-primary">
           My Projects
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -76,7 +93,7 @@
           <span class="pill">HTML</span>
           <span class="pill">CSS</span>
           <span class="pill">Git</span>
-          <span class="pill">Java</span>
+          <span class="pill">Python</span>
           <span class="pill">MySQL</span>
           <span class="pill">Linux/Terminal</span>
           <span class="pill">XAMPP/Apache</span>
@@ -104,7 +121,7 @@
         <div class="project-card-top">
           <div class="stack-label">Ongoing Project</div>
           <span class="project-status">
-            <span class="dot"></span> In Progress
+            <span class="dot-gold"></span> In Progress
           </span>
         </div>
         <h3 class="project-headline">HRMS for a Security Org.</h3>
@@ -116,7 +133,7 @@
             <span class="pill">PHP-Laravel</span>
             <span class="pill">React</span>
             <span class="pill">MariaDB</span>
-            <span class="pill">Apache</span>
+            <span class="pill">XAMPP</span>
           </div>
           <span class="project-arrow">
             View Case Study
@@ -138,6 +155,8 @@
   </div>
 
     </section>
+
+    <script src="scripts.js"></script>
 
 </body>
 </html>
