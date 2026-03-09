@@ -9,4 +9,4 @@ toggle.addEventListener('click', () => {
 function closeMobileNav() {
   toggle.classList.remove('open');
   mobileNav.classList.remove('open');
-}
+} 
