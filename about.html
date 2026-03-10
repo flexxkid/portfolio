@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Timothy K. Mule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">TKM.dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta">Hire Me</a>
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile" id="navMobile">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#about" onclick="closeMobileNav()">About</a></li>
+      <li><a href="index.html#services" onclick="closeMobileNav()">Services</a></li>
+      <li><a href="index.html#projects" onclick="closeMobileNav()">Projects</a></li>
+      <li><a href="index.html#skills" onclick="closeMobileNav()">Skills</a></li>
+      <li><a href="contact.html" onclick="closeMobileNav()">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--              ABOUT SECTION             -->
+  <!-- ═══════════════════════════════════════ -->
+   
+  <section class="about-section" id="about">
+
+    <a href="index.html" class="back-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Portfolio
+    </a>
+
+    <!-- HEADER -->
+    <div class="about-header fade-up">
+      <div class="hero-tag">The Person Behind the Code</div>
+      <h2 class="about-title">Built on<br><span>real curiosity.</span></h2>
+      <p class="about-intro">
+        Not every developer starts with a clear destination.
+        This is where I came from, what drives me now, and where I'm headed.
+      </p>
+    </div>
+
+    <!-- TWO COLUMN GRID -->
+    <div class="about-grid">
+
+      <!-- LEFT — THE STORY -->
+      <div class="about-story">
+
+        <div class="story-block fade-up delay-1">
+          <div class="story-marker">Origin</div>
+          <p class="story-text">
+            I didn't grow up around computers — I grew up around problems that needed solving.
+            When I finally got access to a machine that could run code, the connection was immediate.
+            Writing logic that a computer could execute felt like the closest thing to fluency in a new language,
+            and I've been building that fluency ever since. <strong>Kenyatta University</strong> gave me
+            the formal foundation. Everything else came from staying curious.
+          </p>
+        </div>
+
+        <div class="story-block fade-up delay-2">
+          <div class="story-marker">Now</div>
+          <p class="story-text">
+            Right now my focus is the <strong>GardaWorld HRMS</strong> — a system built to replace
+            paper-based HR operations at a security firm managing thousands of employees.
+            It's the kind of project that has no shortcuts: it has to be secure, reliable,
+            and it has to work for people who didn't ask for a digital system.
+            That last part — designing for reluctant users — is where I've learned the most
+            about what software actually needs to do.
+          </p>
+        </div>
+
+        <div class="story-block fade-up delay-3">
+          <div class="story-marker">Direction</div>
+          <p class="story-text">
+            My specialisation in <strong>Cybersecurity</strong> isn't a sideline — it shapes
+            how I write every line of production code. I'm not interested in building things
+            that work; I'm interested in building things that work <em>correctly</em>, even under
+            adversarial conditions. The intersection of full-stack development and security
+            is where I intend to stay. Freelance engagements, real problems, Kenyan businesses
+            that deserve software built for them.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT — CARDS -->
+      <div class="about-cards">
+
+        <!-- EDUCATION CARD -->
+        <div class="edu-card fade-up delay-1">
+          <div class="stack-label">Education</div>
+          <div class="edu-card-top">
+            <div class="edu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div class="edu-year">2022 — 2026</div>
+          </div>
+          <div class="edu-degree">BSc Computer Science</div>
+          <div class="edu-school">Kenyatta University · Nairobi</div>
+          <div class="edu-spec">Specialisation — Cybersecurity</div>
+        </div>
+
+        <!-- VALUES CARD -->
+        <div class="values-card fade-up delay-2">
+          <div class="stack-label">How I Think About Software</div>
+          <ul class="values-list">
+            <li class="value-item">
+              <span class="value-number">01</span>
+              <span class="value-text">Security is not a feature to add later — it is a foundation to build on first.</span>
+            </li>
+            <li class="value-item">
+              <span class="value-number">02</span>
+              <span class="value-text">A real problem deserves a custom solution, not the nearest available template.</span>
+            </li>
+            <li class="value-item">
+              <span class="value-number">03</span>
+              <span class="value-text">Code that only its author can maintain is already broken.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div><!-- /about-grid -->
+
+    <!-- ─── LEARNING TIMELINE ─── -->
+    <div class="about-timeline fade-up">
+      <div class="timeline-label">— Learning Timeline</div>
+      <div class="timeline-track" id="timelineTrack">
+
+        <div class="timeline-node">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-event">First Line of Code</div>
+          <div class="timeline-desc">Python basics · Loops, functions, logic</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-event">University Begins</div>
+          <div class="timeline-desc">BSc CS · Kenyatta University · Nairobi</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-event">First Full-Stack Build</div>
+          <div class="timeline-desc">Laravel + MySQL · Local business app</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-year">Now</div>
+          <div class="timeline-event">GardaWorld HRMS</div>
+          <div class="timeline-desc">Laravel · React · AWS · Production system</div>
+        </div>
+
+      </div>
+    </div><!-- /timeline -->
+
+    <!-- ─── BUSINESS CARD ─── -->
+    <div class="biz-card-wrapper fade-up">
+      <div class="biz-card-label">— Digital Card</div>
+
+      <div class="biz-card">
+
+        <!-- PHOTO -->
+        <div class="biz-photo-col">
+          <div class="biz-photo-frame">
+            <!--
+              REPLACE this block with:
+              <img src="your-photo.jpg" alt="Timothy K. Mule" />
+              once you have a professional headshot.
+            -->
+            <div class="biz-photo-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+              <div class="biz-photo-hint">Add<br>Photo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="biz-info-col">
+          <div class="biz-name">Timothy K. <span>Mule.</span></div>
+          <div class="biz-role">Full-Stack Developer · Cybersecurity</div>
+          <div class="biz-divider"></div>
+          <div class="biz-contacts">
+            <a href="mailto:timothy.kioko001@gmail.com" class="biz-contact-line">
+              <svg class="biz-contact-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span class="biz-contact-text">timothy.kioko001@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/timothymule" target="_blank" class="biz-contact-line">
+              <svg class="biz-contact-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              <span class="biz-contact-text">linkedin.com/in/timothymule</span>
+            </a>
+            <a href="https://github.com/timothymule" target="_blank" class="biz-contact-line">
+              <svg class="biz-contact-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+              </svg>
+              <span class="biz-contact-text">github.com/timothymule</span>
+            </a>
+          </div>
+          <div class="biz-uni-line">
+            <span class="biz-uni-text">BSc Computer Science · Kenyatta University · Nairobi, Kenya</span>
+          </div>
+        </div>
+
+        <!-- QR CODE -->
+        <div class="biz-qr-col">
+          <!-- QR encodes: https://timothymule.github.io — replace URL to match your live domain -->
+          <div class="biz-qr-frame">
+            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+              <rect width="200" height="200" fill="#0a2e1a"/>
+              <!-- Finder: top-left -->
+              <rect x="0" y="0" width="56" height="56" fill="#3ec878"/>
+              <rect x="8" y="8" width="40" height="40" fill="#0a2e1a"/>
+              <rect x="16" y="16" width="24" height="24" fill="#3ec878"/>
+              <!-- Finder: top-right -->
+              <rect x="144" y="0" width="56" height="56" fill="#3ec878"/>
+              <rect x="152" y="8" width="40" height="40" fill="#0a2e1a"/>
+              <rect x="160" y="16" width="24" height="24" fill="#3ec878"/>
+              <!-- Finder: bottom-left -->
+              <rect x="0" y="144" width="56" height="56" fill="#3ec878"/>
+              <rect x="8" y="152" width="40" height="40" fill="#0a2e1a"/>
+              <rect x="16" y="160" width="24" height="24" fill="#3ec878"/>
+              <!-- Timing patterns -->
+              <rect x="48" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="64" y="48" width="8" height="8" fill="#3ec878"/>
+              <rect x="48" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="48" width="8" height="8" fill="#3ec878"/>
+              <rect x="48" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="48" width="8" height="8" fill="#3ec878"/>
+              <rect x="48" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="48" width="8" height="8" fill="#3ec878"/>
+              <rect x="48" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="48" width="8" height="8" fill="#3ec878"/>
+              <!-- Format / alignment modules -->
+              <rect x="64" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="0" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="0" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="0" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="8" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="8" width="8" height="8" fill="#3ec878"/>
+              <rect x="104" y="8" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="8" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="16" width="8" height="8" fill="#3ec878"/>
+              <rect x="104" y="16" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="16" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="24" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="24" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="24" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="24" width="8" height="8" fill="#3ec878"/>
+              <rect x="104" y="32" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="32" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="40" width="8" height="8" fill="#3ec878"/>
+              <rect x="104" y="40" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="56" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="56" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="56" width="8" height="8" fill="#3ec878"/>
+              <!-- Data region rows -->
+              <rect x="72" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="104" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="64" width="8" height="8" fill="#3ec878"/>
+              <rect x="0" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="72" width="8" height="8" fill="#3ec878"/>
+              <rect x="8" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="16" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="24" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="40" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="56" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="64" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="144" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="192" y="80" width="8" height="8" fill="#3ec878"/>
+              <rect x="16" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="24" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="40" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="88" width="8" height="8" fill="#3ec878"/>
+              <rect x="0" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="8" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="40" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="64" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="144" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="184" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="192" y="96" width="8" height="8" fill="#3ec878"/>
+              <rect x="0" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="104" width="8" height="8" fill="#3ec878"/>
+              <rect x="8" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="16" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="24" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="40" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="56" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="64" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="144" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="192" y="112" width="8" height="8" fill="#3ec878"/>
+              <rect x="16" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="24" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="40" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="120" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="128" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="136" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="136" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="136" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="136" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="136" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="136" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="136" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="144" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="144" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="144" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="144" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="144" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="144" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="144" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="152" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="152" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="152" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="152" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="152" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="152" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="152" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="160" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="160" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="160" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="160" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="160" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="160" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="160" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="168" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="168" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="168" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="168" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="168" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="168" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="168" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="176" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="176" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="176" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="176" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="176" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="176" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="176" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="184" width="8" height="8" fill="#3ec878"/>
+              <rect x="88" y="184" width="8" height="8" fill="#3ec878"/>
+              <rect x="96" y="184" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="184" width="8" height="8" fill="#3ec878"/>
+              <rect x="120" y="184" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="184" width="8" height="8" fill="#3ec878"/>
+              <rect x="136" y="184" width="8" height="8" fill="#3ec878"/>
+              <rect x="72" y="192" width="8" height="8" fill="#3ec878"/>
+              <rect x="80" y="192" width="8" height="8" fill="#3ec878"/>
+              <rect x="112" y="192" width="8" height="8" fill="#3ec878"/>
+              <rect x="128" y="192" width="8" height="8" fill="#3ec878"/>
+              <rect x="152" y="192" width="8" height="8" fill="#3ec878"/>
+              <rect x="160" y="192" width="8" height="8" fill="#3ec878"/>
+              <rect x="176" y="192" width="8" height="8" fill="#3ec878"/>
+            </svg>
+          </div>
+          <div class="biz-qr-label">Scan to visit<br>portfolio</div>
+        </div>
+
+      </div><!-- /biz-card -->
+    </div><!-- /biz-card-wrapper -->
+
+  </section><!-- /about-section -->
+
+
+  <script src="nav.js"></script>
+  <script>
+    // ── INTERSECTION OBSERVER — scroll-triggered fade-up ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Animate timeline progress bar separately
+          if (entry.target.id === 'timelineTrack') {
+            entry.target.classList.add('visible');
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    const track = document.getElementById('timelineTrack');
+    if (track) observer.observe(track);
+  </script>
+
+</body>
+</html>
