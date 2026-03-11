@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills — Timothy K. Mule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+
+
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-logo">TKM.dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="skills.html" style="color:var(--cream);">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta">Hire Me</a>
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="nav-mobile" id="navMobile">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#about"     onclick="closeMobileNav()">About</a></li>
+      <li><a href="index.html#services"  onclick="closeMobileNav()">Services</a></li>
+      <li><a href="index.html#projects"  onclick="closeMobileNav()">Projects</a></li>
+      <li><a href="skills.html"          onclick="closeMobileNav()">Skills</a></li>
+      <li><a href="contact.html"         onclick="closeMobileNav()">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SKILLS PAGE
+  ══════════════════════════════════════════ -->
+  <main class="skills-page" id="skills">
+
+    <!-- BACK LINK -->
+    <a href="index.html" class="back-link" style="margin-bottom:2.5rem; display:inline-flex;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Portfolio
+    </a>
+
+    <!-- HEADER -->
+    <div class="skills-header fade-up">
+      <div class="hero-tag">Technical Proficiency</div>
+      <h1 class="skills-title">Tools I reach for<br><span>and why.</span></h1>
+      <p class="skills-intro">
+        No progress bars — those are decorative fiction.
+        Instead, each skill is marked by how I actually use it:
+        primary stack, working knowledge, or actively studying.
+        Every tool listed has appeared in a real project or a deliberate learning context.
+      </p>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="skills-legend fade-up delay-1">
+      <span class="legend-label">Key —</span>
+      <div class="legend-items">
+        <div class="legend-item">
+          <div class="legend-pip primary"></div>
+          Primary Stack
+        </div>
+        <div class="legend-item">
+          <div class="legend-pip working"></div>
+          Working Knowledge
+        </div>
+        <div class="legend-item">
+          <div class="legend-pip studying"></div>
+          Studying
+        </div>
+      </div>
+    </div>
+
+    <!-- ── DOMAIN GRID ── -->
+    <div class="skills-grid">
+
+      <!-- ── CARD 01: WEB DEVELOPMENT ── -->
+      <div class="domain-card web fade-up delay-1" data-num="01">
+        <div class="domain-top">
+          <div class="domain-meta">
+            <div class="domain-number">Domain 01</div>
+            <div class="domain-name">Web <span>Development</span></div>
+          </div>
+          <div class="domain-tag web">Primary Domain</div>
+        </div>
+        <p class="domain-desc">
+          The core of everything I build — from architecture decisions<br>
+          to the last pixel. Laravel and React are my daily tools.
+        </p>
+        <div class="domain-divider"></div>
+        <div class="skill-rows">
+          <div class="skill-row">
+            <span class="skill-name">PHP · Laravel</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">React</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">HTML · CSS</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">REST APIs</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Laravel Sanctum</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill working"></div></div>
+            <span class="skill-level working">Working</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">TypeScript</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill studying"></div></div>
+            <span class="skill-level studying">Studying</span>
+          </div>
+        </div>
+        <div class="domain-anchor">
+          Used in →
+          <a href="hrms-gardaworld.html">GardaWorld HRMS</a>
+        </div>
+      </div>
+
+      <!-- ── CARD 02: SECURITY ── -->
+      <div class="domain-card security fade-up delay-2" data-num="02">
+        <div class="domain-top">
+          <div class="domain-meta">
+            <div class="domain-number">Domain 02</div>
+            <div class="domain-name">Software <span>Security</span></div>
+          </div>
+          <div class="domain-tag security">Specialisation</div>
+        </div>
+        <p class="domain-desc">
+          My university specialisation. Security informs how I write<br>
+          every production system — not an afterthought, a foundation.
+        </p>
+        <div class="domain-divider"></div>
+        <div class="skill-rows">
+          <div class="skill-row">
+            <span class="skill-name">Cybersecurity</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Auth & Access Control</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Networking</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill working"></div></div>
+            <span class="skill-level working">Working</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">OWASP Top 10</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill working"></div></div>
+            <span class="skill-level working">Working</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Penetration Testing</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill studying"></div></div>
+            <span class="skill-level studying">Studying</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Cryptography</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill studying"></div></div>
+            <span class="skill-level studying">Studying</span>
+          </div>
+        </div>
+        <div class="domain-anchor">
+          Applied in →
+          <a href="hrms-gardaworld.html">HRMS role-based access</a>
+        </div>
+      </div>
+
+      <!-- ── CARD 03: INFRASTRUCTURE ── -->
+      <div class="domain-card infra fade-up delay-3" data-num="03">
+        <div class="domain-top">
+          <div class="domain-meta">
+            <div class="domain-number">Domain 03</div>
+            <div class="domain-name">Infrastructure <span>& DevOps</span></div>
+          </div>
+          <div class="domain-tag infra">Supporting</div>
+        </div>
+        <p class="domain-desc">
+          Getting code to production reliably and keeping it running.<br>
+          Linux-first thinking, Git discipline, cloud storage basics.
+        </p>
+        <div class="domain-divider"></div>
+        <div class="skill-rows">
+          <div class="skill-row">
+            <span class="skill-name">Git · GitHub</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Linux · Terminal</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">AWS S3</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill working"></div></div>
+            <span class="skill-level working">Working</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">XAMPP · Apache</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill working"></div></div>
+            <span class="skill-level working">Working</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">CI/CD Pipelines</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill studying"></div></div>
+            <span class="skill-level studying">Studying</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Docker</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill studying"></div></div>
+            <span class="skill-level studying">Studying</span>
+          </div>
+        </div>
+        <div class="domain-anchor">
+          Used in →
+          <a href="hrms-gardaworld.html">HRMS deployment stack</a>
+        </div>
+      </div>
+
+      <!-- ── CARD 04: DATABASES ── -->
+      <div class="domain-card data fade-up delay-4" data-num="04">
+        <div class="domain-top">
+          <div class="domain-meta">
+            <div class="domain-number">Domain 04</div>
+            <div class="domain-name">Data <span>& Databases</span></div>
+          </div>
+          <div class="domain-tag data">Supporting</div>
+        </div>
+        <p class="domain-desc">
+          Relational design, query optimisation, and safe migrations.<br>
+          Experience moving real businesses off spreadsheets and paper.
+        </p>
+        <div class="domain-divider"></div>
+        <div class="skill-rows">
+          <div class="skill-row">
+            <span class="skill-name">MySQL</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Schema Design</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Laravel Eloquent</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill primary"></div></div>
+            <span class="skill-level primary">Primary</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Query Optimisation</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill working"></div></div>
+            <span class="skill-level working">Working</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Python</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill working"></div></div>
+            <span class="skill-level working">Working</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">PostgreSQL</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill studying"></div></div>
+            <span class="skill-level studying">Studying</span>
+          </div>
+        </div>
+        <div class="domain-anchor">
+          Used in →
+          <a href="hrms-gardaworld.html">HRMS database design</a>
+        </div>
+      </div>
+
+    </div><!-- /skills-grid -->
+
+    <!-- ── TICKER STRIP ── -->
+    <div class="ticker-section">
+      <div class="ticker-label-row">
+        <span class="ticker-heading">Complete Stack</span>
+        <div class="ticker-divider-line"></div>
+        <span class="ticker-count">22 technologies</span>
+      </div>
+      <div class="ticker-track-outer">
+        <div class="ticker-track" id="tickerTrack">
+          <!-- Set 1 -->
+          <span class="ticker-item">PHP <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Laravel <span class="ticker-dot"></span></span>
+          <span class="ticker-item">React <span class="ticker-dot"></span></span>
+          <span class="ticker-item">MySQL <span class="ticker-dot"></span></span>
+          <span class="ticker-item">REST APIs <span class="ticker-dot"></span></span>
+          <span class="ticker-item">HTML <span class="ticker-dot"></span></span>
+          <span class="ticker-item">CSS <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Git <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Linux <span class="ticker-dot"></span></span>
+          <span class="ticker-item">AWS S3 <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Cybersecurity <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Networking <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Laravel Sanctum <span class="ticker-dot"></span></span>
+          <span class="ticker-item">XAMPP <span class="ticker-dot"></span></span>
+          <span class="ticker-item">OWASP <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Python <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Schema Design <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Eloquent ORM <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Auth & RBAC <span class="ticker-dot"></span></span>
+          <span class="ticker-item">TypeScript <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Docker <span class="ticker-dot"></span></span>
+          <span class="ticker-item">PostgreSQL <span class="ticker-dot"></span></span>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <span class="ticker-item">PHP <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Laravel <span class="ticker-dot"></span></span>
+          <span class="ticker-item">React <span class="ticker-dot"></span></span>
+          <span class="ticker-item">MySQL <span class="ticker-dot"></span></span>
+          <span class="ticker-item">REST APIs <span class="ticker-dot"></span></span>
+          <span class="ticker-item">HTML <span class="ticker-dot"></span></span>
+          <span class="ticker-item">CSS <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Git <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Linux <span class="ticker-dot"></span></span>
+          <span class="ticker-item">AWS S3 <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Cybersecurity <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Networking <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Laravel Sanctum <span class="ticker-dot"></span></span>
+          <span class="ticker-item">XAMPP <span class="ticker-dot"></span></span>
+          <span class="ticker-item">OWASP <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Python <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Schema Design <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Eloquent ORM <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Auth & RBAC <span class="ticker-dot"></span></span>
+          <span class="ticker-item">TypeScript <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Docker <span class="ticker-dot"></span></span>
+          <span class="ticker-item">PostgreSQL <span class="ticker-dot"></span></span>
+        </div>
+      </div>
+    </div><!-- /ticker -->
+
+    <!-- ── CTA STRIP ── -->
+    <div class="skills-cta">
+      <div class="skills-cta-text">
+        <div class="skills-cta-heading">Have a problem that fits<br><span>this stack?</span></div>
+        <div class="skills-cta-sub">I build systems around what the problem needs — not what's trending.</div>
+      </div>
+      <a href="contacts.html" class="btn-primary">
+        Start a Conversation
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </main><!-- /skills-page -->
+
+  <script src="nav.js"></script>
+  <script>
+    // ── INTERSECTION OBSERVER — fade-up + bar animation ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── BAR ANIMATION — triggers per card when it enters viewport ──
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.domain-card').forEach(card => barObserver.observe(card));
+  </script>
+
+</body>
+</html>

@@ -1944,3 +1944,482 @@ a.pill {
   .biz-card-footer-row { flex-direction: column; align-items: flex-start; gap: 1.4rem; }
   .biz-qr-col { flex-direction: row; align-items: center; gap: 1rem; }
 }
+
+
+    /* ═══════════════════════════════════════════════════
+       SKILLS PAGE — Additional CSS only.
+       All design tokens, nav, fonts, animations, .pill,
+       .hero-tag, .back-link, .btn-primary are from
+       style.css — nothing redeclared here.
+    ═══════════════════════════════════════════════════ */
+
+    /* ── SCROLL-TRIGGERED FADE ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible        { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1        { transition-delay: 0.08s; }
+    .fade-up.delay-2        { transition-delay: 0.18s; }
+    .fade-up.delay-3        { transition-delay: 0.28s; }
+    .fade-up.delay-4        { transition-delay: 0.38s; }
+
+    /* ── PAGE WRAPPER ── */
+    .skills-page {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 4rem 0;
+    }
+
+    /* ── DOT-GRID BACKGROUND TEXTURE ── */
+    .skills-page::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(61,200,120,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── PAGE HEADER ── */
+    .skills-header {
+      max-width: 600px;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .skills-title span {
+      color: var(--green-bright);
+      font-style: italic;
+    }
+
+    .skills-intro {
+      font-size: 0.97rem;
+      line-height: 1.88;
+      color: var(--text-muted);
+    }
+
+    /* ── LEGEND ── */
+    .skills-legend {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .legend-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 0.5rem;
+    }
+
+    .legend-items {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .legend-pip {
+      width: 20px;
+      height: 4px;
+      border-radius: 2px;
+    }
+
+    .legend-pip.primary   { background: var(--green-bright); }
+    .legend-pip.working   { background: var(--green-accent); opacity: 0.6; }
+    .legend-pip.studying  {
+      background: transparent;
+      border: 1px solid rgba(61,200,120,0.35);
+    }
+
+    /* ── 2x2 DOMAIN GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── DOMAIN CARD ── */
+    .domain-card {
+      background: rgba(10,46,26,0.75);
+      padding: 2.2rem 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .domain-card:hover { background: rgba(45,158,95,0.07); }
+
+    /* coloured top border per domain */
+    .domain-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .domain-card.web::before        { background: var(--green-bright); }
+    .domain-card.security::before   { background: var(--gold); }
+    .domain-card.infra::before      { background: var(--green-accent); }
+    .domain-card.data::before       { background: var(--green-mid); }
+
+    /* large faint domain number watermark */
+    .domain-card::after {
+      content: attr(data-num);
+      position: absolute;
+      bottom: -1.2rem; right: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 7rem;
+      font-weight: 700;
+      color: rgba(61,200,120,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .domain-card:hover::after {
+      color: rgba(61,200,120,0.07);
+      transform: scale(1.05);
+    }
+
+    /* ── CARD TOP ZONE ── */
+    .domain-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.6rem;
+      gap: 1rem;
+    }
+
+    .domain-meta { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .domain-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .domain-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .domain-name span {
+      font-style: italic;
+    }
+
+    .domain-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .domain-tag.web      { color: var(--green-bright); background: rgba(62,200,120,0.08); border: 1px solid rgba(62,200,120,0.2); }
+    .domain-tag.security { color: var(--gold);         background: rgba(200,168,75,0.08);  border: 1px solid rgba(200,168,75,0.2); }
+    .domain-tag.infra    { color: var(--green-accent);  background: rgba(45,158,95,0.08);  border: 1px solid rgba(45,158,95,0.2); }
+    .domain-tag.data     { color: var(--green-glow);    background: rgba(26,92,56,0.2);    border: 1px solid rgba(93,222,142,0.2); }
+
+    .domain-desc {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.6rem;
+    }
+
+    /* ── DIVIDER INSIDE CARD ── */
+    .domain-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.05);
+      margin-bottom: 1.6rem;
+    }
+
+    /* ── SKILL ROWS ── */
+    .skill-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 80px;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .skill-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--cream-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* categorical bar track */
+    .skill-bar-track {
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      width: 0%;
+      transition: width 1s ease 0.4s;
+    }
+
+    /* three states */
+    .skill-bar-fill.primary  { background: var(--green-bright); width: 100%; }
+    .skill-bar-fill.working  { background: var(--green-accent); width: 60%; }
+    .skill-bar-fill.studying {
+      width: 25%;
+      background: rgba(61,200,120,0.35);
+    }
+
+    /* bar animation — starts at 0 until .animate is added */
+    .skill-bar-fill.primary.animate   { width: 100%; }
+    .skill-bar-fill.working.animate   { width: 60%; }
+    .skill-bar-fill.studying.animate  { width: 25%; }
+
+    /* reset to 0 before animation */
+    .domain-card:not(.animated) .skill-bar-fill { width: 0% !important; }
+    .domain-card.animated .skill-bar-fill.primary  { width: 100%; }
+    .domain-card.animated .skill-bar-fill.working  { width: 60%; }
+    .domain-card.animated .skill-bar-fill.studying { width: 25%; }
+
+    .skill-level {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .skill-level.primary  { color: var(--green-bright); }
+    .skill-level.working  { color: var(--green-accent); }
+    .skill-level.studying { color: var(--text-muted); }
+
+    /* ── CARD ANCHOR NOTE ── */
+    .domain-anchor {
+      margin-top: 1.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .domain-anchor a {
+      color: var(--green-bright);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(61,200,120,0.25);
+      transition: border-color 0.2s;
+    }
+
+    .domain-anchor a:hover { border-color: var(--green-bright); }
+
+    /* ── TICKER STRIP ── */
+    .ticker-section {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(10,46,26,0.6);
+      backdrop-filter: blur(8px);
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    .ticker-label-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.9rem 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .ticker-heading {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .ticker-divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .ticker-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      color: var(--green-bright);
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+
+    /* scrolling ticker */
+    .ticker-track-outer {
+      overflow: hidden;
+      padding: 1rem 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerScroll 38s linear infinite;
+    }
+
+    .ticker-track:hover { animation-play-state: paused; }
+
+    @keyframes tickerScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 0 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .ticker-item:hover { color: var(--cream); }
+
+    .ticker-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--green-accent);
+      border-radius: 50%;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* ── CTA STRIP ── */
+    .skills-cta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 3rem 4rem 6rem;
+      flex-wrap: wrap;
+    }
+
+    .skills-cta-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .skills-cta-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    .skills-cta-heading span {
+      color: var(--green-bright);
+      font-style: italic;
+    }
+
+    .skills-cta-sub {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .skills-page    { padding: 6rem 2rem 0; }
+      .skills-grid    { grid-template-columns: 1fr; }
+      .skill-row      { grid-template-columns: 110px 1fr 70px; gap: 0.7rem; }
+      .skills-legend  { flex-wrap: wrap; gap: 1rem; }
+      .ticker-label-row { padding: 0.9rem 2rem; }
+      .skills-cta     { padding: 2.5rem 2rem 5rem; flex-direction: column; align-items: flex-start; }
+      .domain-card::after { font-size: 5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .skill-row { grid-template-columns: 90px 1fr 60px; }
+      .skill-name { font-size: 0.62rem; }
+    }
