@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Timothy K. Mule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <!-- Main design system — tokens, nav, body, fonts, .pill, .btn-primary, .back-link, .dot, .dot-gold, .stack-label, animations -->
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Page-specific additional styles only -->
+  <link rel="stylesheet" href="projects.css"/>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">TKM.dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="projects.html" style="color:var(--cream);">Projects</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta">Hire Me</a>
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile" id="navMobile">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#about"    onclick="closeMobileNav()">About</a></li>
+      <li><a href="index.html#services" onclick="closeMobileNav()">Services</a></li>
+      <li><a href="projects.html"       onclick="closeMobileNav()">Projects</a></li>
+      <li><a href="skills.html"         onclick="closeMobileNav()">Skills</a></li>
+      <li><a href="contact.html"        onclick="closeMobileNav()">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
+  </div>
+
+  <!-- PROJECTS PAGE -->
+  <main class="projects-page" id="projects">
+
+    <!-- BACK LINK — .back-link inherited from style.css -->
+    <a href="index.html" class="back-link projects-back">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Portfolio
+    </a>
+
+    <!-- PAGE HEADER -->
+    <div class="projects-header fade-up">
+      <div class="projects-header-left">
+        <div class="hero-tag">Built Work</div>
+        <h1 class="projects-title">Problems I've<br><span>actually solved.</span></h1>
+        <p class="projects-intro">
+          Every project here started with a real constraint —
+          a business running on paper, a payment flow with no audit trail,
+          a system with no access control. The stack followed the problem,
+          not the other way around.
+        </p>
+      </div>
+      <div class="projects-counter" aria-hidden="true" id="projectCounter">—</div>
+    </div>
+
+    <!-- LOADING STATE -->
+    <div class="projects-loading" id="projectsLoading">
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill"></div>
+      </div>
+      <span class="loading-text">Loading projects</span>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div class="projects-error" id="projectsError" style="display:none;">
+      <p>Could not load projects.json — make sure the file is in the same directory.</p>
+    </div>
+
+    <!-- FEATURED PROJECT — populated by renderFeatured() -->
+    <div class="featured-wrapper fade-up delay-1" id="featuredWrapper" style="display:none;">
+      <div class="featured-label-row">
+        <span class="featured-label">— Featured Project</span>
+        <div class="featured-rule"></div>
+      </div>
+      <div id="featuredCard"></div>
+    </div>
+
+    <!-- SUPPORTING PROJECTS — populated by renderSupporting() -->
+    <div class="supporting-wrapper fade-up delay-2" id="supportingWrapper" style="display:none;">
+      <div class="supporting-label-row">
+        <span class="supporting-label">— Supporting Projects</span>
+        <div class="supporting-rule"></div>
+      </div>
+      <div class="supporting-grid" id="supportingGrid"></div>
+      <div class="coming-strip">
+        <div class="coming-dot-row">
+          <div class="coming-dot"></div>
+          <div class="coming-dot"></div>
+          <div class="coming-dot"></div>
+        </div>
+        <span class="coming-text">
+          More projects in development —
+          <span>check back as new work ships.</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- CTA STRIP -->
+    <div class="projects-cta fade-up delay-3" id="projectsCta" style="display:none;">
+      <div class="projects-cta-text">
+        <div class="projects-cta-heading">Have a problem that needs<br><span>a custom solution?</span></div>
+        <div class="projects-cta-sub">I build systems around what the problem actually needs.</div>
+      </div>
+      <a href="contact.html" class="btn-primary">
+        Start a Conversation
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="scripts.js"></script>
+  <script>
+
+    /* INTERSECTION OBSERVER — fade-up on scroll */
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    function observeFadeElements() {
+      document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+    }
+
+    /* BADGE HELPERS */
+    function statusBadge(status) {
+      const label    = status === 'in-progress' ? 'In Progress' : 'Completed';
+      const dotClass = status === 'in-progress' ? 'dot-gold' : 'dot';
+      return `<span class="featured-status ${status}"><span class="${dotClass}"></span>${label}</span>`;
+    }
+
+    function supStatusBadge(status) {
+      const label    = status === 'in-progress' ? 'In Progress' : 'Completed';
+      const dotClass = status === 'in-progress' ? 'dot-gold' : 'dot';
+      return `<span class="sup-status ${status}"><span class="${dotClass}"></span>${label}</span>`;
+    }
+
+    /* PILLS — link to skills.html */
+    function pillsHTML(stack) {
+      return stack.map(s => `<a href="skills.html" class="pill">${s}</a>`).join('');
+    }
+
+    /* RENDER FEATURED PROJECT */
+    function renderFeatured(p) {
+      const ctaHTML = p.link
+        ? `<a href="${p.link}" class="featured-cta">
+            View Case Study
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+           </a>`
+        : '';
+
+      document.getElementById('featuredCard').innerHTML = `
+        <div class="featured-card" data-num="${p.number}">
+
+          <div class="featured-main">
+            <div class="featured-top-row">
+              <span class="featured-number">Project ${p.number}</span>
+              ${statusBadge(p.status)}
+              <span class="stack-label" style="margin-bottom:0;">${p.type_label}</span>
+            </div>
+
+            <div class="featured-title-block">
+              <h2 class="featured-title">${p.title}</h2>
+              <div class="featured-subtitle">${p.subtitle}</div>
+            </div>
+
+            <p class="featured-problem">${p.problem}</p>
+
+            <p class="featured-contribution">
+              <strong>My contribution —</strong> ${p.contribution}
+            </p>
+
+            <div class="featured-footer">
+              <div class="featured-stack">${pillsHTML(p.stack)}</div>
+              ${ctaHTML}
+            </div>
+          </div>
+
+          <div class="featured-meta">
+            <div class="meta-block">
+              <div class="meta-block-label">Client</div>
+              <div class="meta-block-value">${p.client}</div>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-block">
+              <div class="meta-block-label">Year</div>
+              <div class="meta-block-value mono">${p.year}</div>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-block">
+              <div class="meta-block-label">Type</div>
+              <div class="meta-block-value mono">${p.type_label}</div>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-block">
+              <div class="meta-block-label">Stack</div>
+              <div class="meta-block-value mono">${p.stack.join(' · ')}</div>
+            </div>
+            ${p.status === 'in-progress' ? `
+            <div class="meta-live">
+              <span class="dot-gold"></span>
+              Active Development
+            </div>` : ''}
+          </div>
+
+        </div>
+      `;
+    }
+
+    /* RENDER SUPPORTING GRID */
+    function renderSupporting(projects) {
+      document.getElementById('supportingGrid').innerHTML = projects.map(p => {
+        const ctaHTML = p.link
+          ? `<a href="${p.link}" class="project-arrow" style="font-size:0.62rem;">
+               View
+               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                 <path d="M5 12h14M12 5l7 7-7 7"/>
+               </svg>
+             </a>`
+          : `<span class="sup-no-link">No case study yet</span>`;
+
+        return `
+          <div class="sup-card" data-accent="${p.accent}" data-num="${p.number}">
+            <div class="sup-card-top">
+              <span class="sup-number">Project ${p.number}</span>
+              ${supStatusBadge(p.status)}
+            </div>
+            <div class="sup-title-block">
+              <div class="sup-title">${p.title}</div>
+              <div class="sup-subtitle">${p.subtitle}</div>
+            </div>
+            <p class="sup-problem">${p.problem}</p>
+            <p class="sup-contribution">
+              <strong>Built —</strong> ${p.contribution}
+            </p>
+            <div class="sup-footer">
+              <div class="sup-stack">${pillsHTML(p.stack)}</div>
+              ${ctaHTML}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* FETCH projects.json AND ORCHESTRATE */
+    fetch('projects.json')
+      .then(res => {
+        if (!res.ok) throw new Error('fetch failed');
+        return res.json();
+      })
+      .then(data => {
+        const featured   = data.projects.find(p => p.type === 'featured');
+        const supporting = data.projects.filter(p => p.type === 'supporting');
+
+        document.getElementById('projectCounter').textContent =
+          String(data.projects.length).padStart(2, '0');
+
+        document.getElementById('projectsLoading').style.display = 'none';
+
+        if (featured) {
+          renderFeatured(featured);
+          document.getElementById('featuredWrapper').style.display = 'block';
+        }
+
+        if (supporting.length > 0) {
+          renderSupporting(supporting);
+          document.getElementById('supportingWrapper').style.display = 'block';
+        }
+
+        document.getElementById('projectsCta').style.display = 'flex';
+        observeFadeElements();
+      })
+      .catch(() => {
+        document.getElementById('projectsLoading').style.display = 'none';
+        document.getElementById('projectsError').style.display   = 'block';
+      });
+
+    observeFadeElements();
+
+  </script>
+
+</body>
+</html>

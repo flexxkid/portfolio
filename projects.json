@@ -1,0 +1,68 @@
+{
+  "projects": [
+    {
+      "id": "hrms-gardaworld",
+      "type": "featured",
+      "status": "in-progress",
+      "number": "01",
+      "title": "GardaWorld HRMS",
+      "subtitle": "Human Resource Management System",
+      "client": "GardaWorld Security Kenya",
+      "problem": "Thousands of employee records managed on paper with no access control, no audit trail, and no way to query history.",
+      "contribution": "Designed the full system architecture, role-based access control, database schema, and AWS S3 file management pipeline.",
+      "year": "2024 — Present",
+      "type_label": "Full-Stack Web App",
+      "stack": ["Laravel", "React", "MySQL", "AWS S3"],
+      "link": "hrms-project.html",
+      "accent": "green"
+    },
+    {
+      "id": "stk-push",
+      "type": "supporting",
+      "status": "completed",
+      "number": "02",
+      "title": "M-Pesa STK Push",
+      "subtitle": "Payment Integration Module",
+      "client": "Personal Project",
+      "problem": "Businesses needed a reliable way to trigger mobile payments programmatically without manual customer input.",
+      "contribution": "Built a Laravel package wrapping the Safaricom Daraja API, handling callbacks, timeouts, and transaction logging.",
+      "year": "2023",
+      "type_label": "API Integration",
+      "stack": ["Laravel", "PHP", "Daraja API", "MySQL"],
+      "link": null,
+      "accent": "gold"
+    },
+    {
+      "id": "auth-system",
+      "type": "supporting",
+      "status": "completed",
+      "number": "03",
+      "title": "Role-Based Auth System",
+      "subtitle": "Authorization & Permission Engine",
+      "client": "Academic + Applied",
+      "problem": "Standard Laravel auth does not handle multi-role permission structures with granular resource-level control.",
+      "contribution": "Designed a permission matrix system with role inheritance, middleware guards, and a UI for managing access without code changes.",
+      "year": "2023",
+      "type_label": "Security Module",
+      "stack": ["Laravel", "MySQL", "Sanctum", "PHP"],
+      "link": null,
+      "accent": "accent"
+    },
+     {
+      "id": "data-encryption",
+      "type": "supporting",
+      "status": "completed",
+      "number": "04",
+      "title": "Data Encryption Layer",
+      "subtitle": "Field-Level Encryption for Laravel",
+      "client": "Academic + Applied",
+      "problem": "Sensitive fields in database tables were stored in plain text, exposing PII in the event of a breach.",
+      "contribution": "Implemented AES-256 field-level encryption via Laravel model casting, with key rotation support and searchable encrypted indexes.",
+      "year": "2024",
+      "type_label": "Security Module",
+      "stack": ["Laravel", "PHP", "Cybersecurity", "MySQL"],
+      "link": null,
+      "accent": "mid"
+    }
+  ]
+}
