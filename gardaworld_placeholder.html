@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HRMS Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0a1628;
+    --navy2:  #0f2040;
+    --navy3:  #162d55;
+    --gold:   #c9a84c;
+    --gold2:  #e8c96a;
+    --gold3:  #f5e0a0;
+    --cream:  #f7f3ec;
+    --smoke:  #e8e2d8;
+    --muted:  #8a9ab5;
+    --danger: #c0392b;
+    --success:#1a7a4a;
+    --warn:   #b8860b;
+    --white:  #ffffff;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-cond: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+    --radius: 6px;
+    --shadow: 0 2px 24px rgba(0,0,0,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--navy);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo-shield {
+    width: 32px; height: 36px;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 100% 20%, 100% 70%, 50% 100%, 0% 70%, 0% 20%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--navy);
+  }
+  .nav-brand { font-family: var(--font-display); font-size: 22px; color: var(--white); letter-spacing: 2px; }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-family: var(--font-cond); font-size: 13px; font-weight: 500;
+    color: var(--muted); text-decoration: none; letter-spacing: 1.5px;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy); border: none; cursor: pointer;
+    font-family: var(--font-cond); font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 8px 20px; border-radius: var(--radius);
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold2); }
+
+  /* ── VIEW TOGGLE ── */
+  .view-toggle {
+    position: fixed; top: 72px; left: 50%; transform: translateX(-50%);
+    z-index: 99; background: var(--navy); border: 1px solid var(--gold);
+    border-radius: 40px; display: flex; padding: 4px; gap: 2px;
+  }
+  .vt-btn {
+    font-family: var(--font-cond); font-size: 12px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 20px; border-radius: 40px; border: none; cursor: pointer;
+    transition: all 0.25s; color: var(--muted); background: transparent;
+  }
+  .vt-btn.active { background: var(--gold); color: var(--navy); }
+
+  /* ── PAGE SECTIONS ── */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ══════════════════════════════════
+     PUBLIC CAREERS PAGE
+  ══════════════════════════════════ */
+  .careers-page { padding-top: 120px; }
+
+  /* Hero */
+  .hero {
+    background: var(--navy);
+    padding: 80px 0 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent, transparent 59px,
+        rgba(201,168,76,0.05) 59px, rgba(201,168,76,0.05) 60px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent, transparent 59px,
+        rgba(201,168,76,0.05) 59px, rgba(201,168,76,0.05) 60px
+      );
+  }
+  .hero::after {
+    content: 'GARDAWORLD';
+    position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+    font-family: var(--font-display); font-size: 180px; color: rgba(201,168,76,0.04);
+    letter-spacing: 8px; white-space: nowrap; pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px; margin: 0 auto; padding: 0 40px;
+    position: relative; z-index: 1;
+  }
+  .hero-tag {
+    font-family: var(--font-cond); font-size: 12px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-family: var(--font-display); font-size: 72px; line-height: 0.95;
+    color: var(--white); letter-spacing: 2px; margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 16px; color: var(--muted); line-height: 1.7;
+    max-width: 540px; margin-bottom: 36px; font-weight: 300;
+  }
+  .hero-stats {
+    display: flex; gap: 40px; padding-top: 32px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .stat-item {}
+  .stat-num { font-family: var(--font-display); font-size: 36px; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+
+  /* Filter bar */
+  .filter-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--smoke);
+    padding: 0 40px; position: sticky; top: 60px; z-index: 50;
+  }
+  .filter-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; align-items: center; gap: 0;
+  }
+  .filter-tab {
+    font-family: var(--font-cond); font-size: 13px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 16px 20px; border: none; background: none; cursor: pointer;
+    color: var(--muted); border-bottom: 2px solid transparent;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .filter-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+  .filter-sep { flex: 1; }
+  .search-box {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--cream); border: 1px solid var(--smoke);
+    border-radius: var(--radius); padding: 6px 12px; margin: 8px 0;
+  }
+  .search-box svg { flex-shrink: 0; }
+  .search-box input {
+    border: none; background: none; font-family: var(--font-body);
+    font-size: 13px; color: var(--navy); width: 180px; outline: none;
+  }
+  .search-box input::placeholder { color: var(--muted); }
+
+  /* Vacancy grid */
+  .vacancies-section {
+    max-width: 900px; margin: 0 auto; padding: 40px;
+  }
+  .section-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    font-family: var(--font-cond); font-size: 18px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--navy);
+  }
+  .section-count { font-size: 13px; color: var(--muted); }
+
+  .vacancy-card {
+    background: var(--white); border: 1px solid var(--smoke);
+    border-radius: var(--radius); padding: 0;
+    margin-bottom: 16px; overflow: hidden;
+    transition: all 0.25s; cursor: pointer;
+    border-left: 4px solid transparent;
+  }
+  .vacancy-card:hover {
+    border-left-color: var(--gold);
+    box-shadow: var(--shadow); transform: translateY(-1px);
+  }
+  .vacancy-card.featured { border-left-color: var(--gold); }
+  .vc-main { padding: 24px; display: flex; gap: 20px; align-items: flex-start; }
+  .vc-icon {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--navy); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .vc-icon svg { width: 22px; height: 22px; }
+  .vc-body { flex: 1; }
+  .vc-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+  .vc-role { font-family: var(--font-cond); font-size: 19px; font-weight: 700; color: var(--navy); letter-spacing: 0.3px; }
+  .vc-apply-btn {
+    background: var(--navy); color: var(--gold); border: 1px solid var(--navy);
+    font-family: var(--font-cond); font-size: 12px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 8px 18px; border-radius: var(--radius); cursor: pointer;
+    transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+  }
+  .vc-apply-btn:hover { background: var(--gold); color: var(--navy); }
+  .vc-meta {
+    display: flex; gap: 16px; margin: 8px 0 12px; flex-wrap: wrap;
+  }
+  .vc-meta-item {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 13px; color: var(--muted); font-weight: 400;
+  }
+  .vc-meta-item svg { width: 13px; height: 13px; }
+  .vc-desc { font-size: 14px; color: #4a5568; line-height: 1.6; font-weight: 300; }
+  .vc-tags { display: flex; gap: 8px; padding: 0 24px 20px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--font-cond); font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px;
+  }
+  .tag-type { background: rgba(10,22,40,0.07); color: var(--navy3); }
+  .tag-loc  { background: rgba(201,168,76,0.12); color: var(--warn); }
+  .tag-new  { background: rgba(26,122,74,0.1);  color: var(--success); }
+  .tag-urgent { background: rgba(192,57,43,0.1); color: var(--danger); }
+  .vc-footer {
+    border-top: 1px solid var(--smoke); padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(247,243,236,0.5);
+  }
+  .vc-deadline { font-size: 12px; color: var(--muted); }
+  .vc-deadline strong { color: var(--navy); }
+  .vc-applicants { font-size: 12px; color: var(--muted); }
+  .vc-applicants strong { color: var(--gold); font-weight: 600; }
+
+  /* Apply Modal */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(10,22,40,0.85);
+    z-index: 200; display: none; align-items: center; justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white); border-radius: 10px;
+    width: 540px; max-width: 95vw; max-height: 90vh; overflow-y: auto;
+    border-top: 4px solid var(--gold);
+    animation: slideUp 0.3s ease;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  .modal-header {
+    padding: 28px 32px 20px; border-bottom: 1px solid var(--smoke);
+    position: sticky; top: 0; background: var(--white); z-index: 1;
+    display: flex; align-items: flex-start; justify-content: space-between;
+  }
+  .modal-title { font-family: var(--font-display); font-size: 26px; color: var(--navy); letter-spacing: 1px; }
+  .modal-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .modal-close {
+    width: 32px; height: 32px; background: var(--cream); border: none;
+    border-radius: 50%; cursor: pointer; font-size: 18px; color: var(--navy);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: var(--smoke); }
+  .modal-body { padding: 28px 32px; }
+  .form-row { margin-bottom: 20px; }
+  .form-row label {
+    display: block; font-family: var(--font-cond); font-size: 12px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy3);
+    margin-bottom: 6px;
+  }
+  .form-row label span { color: var(--danger); }
+  .form-input {
+    width: 100%; padding: 11px 14px; border: 1px solid var(--smoke);
+    border-radius: var(--radius); font-family: var(--font-body); font-size: 14px;
+    color: var(--navy); background: var(--cream); outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--gold); background: var(--white); }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .upload-zone {
+    border: 2px dashed var(--smoke); border-radius: var(--radius);
+    padding: 24px; text-align: center; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--cream);
+  }
+  .upload-zone:hover { border-color: var(--gold); background: rgba(201,168,76,0.04); }
+  .upload-zone-icon { font-size: 28px; margin-bottom: 8px; }
+  .upload-zone-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .upload-zone-text strong { color: var(--navy); }
+  .doc-list { margin-top: 12px; }
+  .doc-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 12px; background: var(--cream);
+    border-radius: var(--radius); margin-top: 8px; font-size: 13px;
+  }
+  .doc-item-status { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .doc-item-status.req { background: var(--danger); }
+  .doc-item-status.opt { background: var(--muted); }
+  .doc-item-label { flex: 1; color: var(--navy); }
+  .doc-item-req { font-size: 11px; color: var(--muted); }
+  .modal-footer {
+    padding: 20px 32px; border-top: 1px solid var(--smoke);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; background: rgba(247,243,236,0.5);
+  }
+  .btn-primary {
+    background: var(--navy); color: var(--gold); border: none; cursor: pointer;
+    font-family: var(--font-cond); font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 12px 28px; border-radius: var(--radius); transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--navy3); }
+  .btn-ghost {
+    background: none; border: 1px solid var(--smoke); color: var(--muted);
+    font-family: var(--font-cond); font-size: 13px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 12px 20px; border-radius: var(--radius); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
+  .progress-steps {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .pstep {
+    width: 24px; height: 4px; border-radius: 2px;
+    background: var(--smoke); transition: background 0.3s;
+  }
+  .pstep.done { background: var(--gold); }
+  .pstep.active { background: var(--navy); }
+
+  /* ══════════════════════════════════
+     HR MODULE
+  ══════════════════════════════════ */
+  .hr-page {
+    padding-top: 100px;
+    display: grid; grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+  }
+
+  /* Sidebar */
+  .hr-sidebar {
+    background: var(--navy); border-right: 1px solid rgba(201,168,76,0.15);
+    padding: 24px 0; position: fixed; top: 60px; bottom: 0;
+    width: 240px; overflow-y: auto;
+  }
+  .sidebar-section { margin-bottom: 8px; }
+  .sidebar-label {
+    font-family: var(--font-cond); font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(138,154,181,0.5); padding: 12px 20px 6px;
+  }
+  .sidebar-link {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 20px; text-decoration: none;
+    font-size: 14px; color: var(--muted); cursor: pointer;
+    transition: all 0.2s; border-left: 3px solid transparent;
+    font-weight: 400;
+  }
+  .sidebar-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .sidebar-link:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+  .sidebar-link.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,0.06); }
+  .sidebar-badge {
+    margin-left: auto; background: var(--gold); color: var(--navy);
+    font-size: 10px; font-weight: 700; border-radius: 10px;
+    padding: 1px 7px; font-family: var(--font-cond);
+  }
+  .sidebar-badge.red { background: var(--danger); color: var(--white); }
+
+  /* HR Main */
+  .hr-main {
+    margin-left: 240px; padding: 32px 40px; min-height: calc(100vh - 100px);
+  }
+  .hr-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .hr-page-title { font-family: var(--font-display); font-size: 32px; color: var(--navy); letter-spacing: 1px; }
+  .hr-page-sub { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .hr-topbar-actions { display: flex; gap: 10px; }
+
+  /* KPI strip */
+  .kpi-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-bottom: 28px;
+  }
+  .kpi-card {
+    background: var(--white); border: 1px solid var(--smoke);
+    border-radius: var(--radius); padding: 20px;
+    border-top: 3px solid var(--smoke);
+    transition: transform 0.2s;
+  }
+  .kpi-card:hover { transform: translateY(-2px); }
+  .kpi-card.gold { border-top-color: var(--gold); }
+  .kpi-card.green { border-top-color: var(--success); }
+  .kpi-card.red { border-top-color: var(--danger); }
+  .kpi-card.blue { border-top-color: #2980b9; }
+  .kpi-num { font-family: var(--font-display); font-size: 36px; color: var(--navy); line-height: 1; }
+  .kpi-label { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 0.5px; }
+  .kpi-delta { font-size: 11px; margin-top: 8px; font-weight: 500; }
+  .kpi-delta.up { color: var(--success); }
+  .kpi-delta.down { color: var(--danger); }
+
+  /* Applicant pipeline */
+  .hr-panel {
+    background: var(--white); border: 1px solid var(--smoke);
+    border-radius: var(--radius); overflow: hidden; margin-bottom: 24px;
+  }
+  .hr-panel-header {
+    padding: 18px 24px; border-bottom: 1px solid var(--smoke);
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(247,243,236,0.4);
+  }
+  .hr-panel-title {
+    font-family: var(--font-cond); font-size: 16px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--navy);
+  }
+  .hr-panel-actions { display: flex; gap: 8px; }
+
+  /* Pipeline kanban */
+  .pipeline {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; border-top: 1px solid var(--smoke);
+  }
+  .pipeline-col {
+    border-right: 1px solid var(--smoke); padding: 16px;
+  }
+  .pipeline-col:last-child { border-right: none; }
+  .pipeline-col-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .pipeline-col-title {
+    font-family: var(--font-cond); font-size: 12px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
+  }
+  .pipeline-count {
+    font-family: var(--font-cond); font-size: 12px; font-weight: 700;
+    background: var(--cream); color: var(--navy);
+    border-radius: 12px; padding: 1px 8px;
+  }
+  .applicant-card {
+    background: var(--cream); border: 1px solid var(--smoke);
+    border-radius: var(--radius); padding: 12px; margin-bottom: 10px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .applicant-card:hover { background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .ac-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .ac-avatar {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-cond); font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .ac-info { flex: 1; }
+  .ac-name { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.2; }
+  .ac-role { font-size: 11px; color: var(--muted); }
+  .ac-badge {
+    font-size: 10px; font-weight: 700; font-family: var(--font-cond);
+    letter-spacing: 0.5px; padding: 2px 7px; border-radius: 12px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .ac-badge.new { background: rgba(26,122,74,0.12); color: var(--success); }
+  .ac-badge.docs { background: rgba(184,134,11,0.12); color: var(--warn); }
+  .ac-badge.review { background: rgba(41,128,185,0.12); color: #2980b9; }
+  .ac-badge.hired { background: rgba(26,122,74,0.15); color: var(--success); }
+  .ac-meta { font-size: 11px; color: var(--muted); display: flex; gap: 10px; }
+
+  /* Applicant detail drawer */
+  .drawer-overlay {
+    position: fixed; inset: 0; z-index: 150;
+    background: rgba(10,22,40,0.5);
+    display: none;
+  }
+  .drawer-overlay.open { display: block; }
+  .drawer {
+    position: fixed; top: 60px; right: 0; bottom: 0; width: 480px;
+    background: var(--white); border-left: 1px solid var(--smoke);
+    z-index: 151; transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+    overflow-y: auto;
+  }
+  .drawer.open { transform: none; }
+  .drawer-header {
+    padding: 24px 28px; border-bottom: 1px solid var(--smoke);
+    background: var(--navy); position: sticky; top: 0; z-index: 1;
+  }
+  .drawer-close {
+    position: absolute; top: 16px; right: 20px;
+    background: rgba(255,255,255,0.1); border: none; color: var(--white);
+    width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+    font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .drawer-close:hover { background: rgba(255,255,255,0.2); }
+  .drawer-applicant-name { font-family: var(--font-display); font-size: 24px; color: var(--white); letter-spacing: 1px; }
+  .drawer-role { font-size: 13px; color: var(--gold); margin-top: 2px; }
+  .drawer-status-row { display: flex; gap: 8px; margin-top: 12px; }
+  .status-pill {
+    font-family: var(--font-cond); font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px; border: 1px solid;
+  }
+  .status-pill.pending { color: var(--warn); border-color: var(--warn); }
+  .status-pill.verified { color: var(--success); border-color: var(--success); }
+  .status-pill.flagged { color: var(--danger); border-color: var(--danger); }
+  .drawer-body { padding: 24px 28px; }
+  .drawer-section { margin-bottom: 24px; }
+  .drawer-section-title {
+    font-family: var(--font-cond); font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--smoke);
+  }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .info-item-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .info-item-value { font-size: 14px; color: var(--navy); font-weight: 500; }
+  .doc-check-list {}
+  .doc-check-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px; border-radius: var(--radius);
+    background: var(--cream); margin-bottom: 8px;
+    border: 1px solid var(--smoke);
+  }
+  .doc-check-icon {
+    width: 28px; height: 28px; border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 14px;
+  }
+  .doc-check-icon.ok { background: rgba(26,122,74,0.1); }
+  .doc-check-icon.warn { background: rgba(184,134,11,0.1); }
+  .doc-check-icon.missing { background: rgba(192,57,43,0.1); }
+  .doc-check-name { flex: 1; font-size: 13px; color: var(--navy); font-weight: 500; }
+  .doc-check-action {
+    font-size: 11px; font-family: var(--font-cond); font-weight: 600;
+    letter-spacing: 0.5px; cursor: pointer; text-decoration: underline;
+    color: var(--navy3);
+  }
+  .action-bar {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; margin-top: 24px;
+  }
+  .btn-hire {
+    background: var(--success); color: var(--white); border: none; cursor: pointer;
+    font-family: var(--font-cond); font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px; border-radius: var(--radius); transition: all 0.2s;
+  }
+  .btn-hire:hover { background: #145c36; }
+  .btn-reject {
+    background: none; color: var(--danger); border: 1.5px solid var(--danger); cursor: pointer;
+    font-family: var(--font-cond); font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px; border-radius: var(--radius); transition: all 0.2s;
+  }
+  .btn-reject:hover { background: rgba(192,57,43,0.06); }
+  .btn-shortlist {
+    grid-column: 1 / -1;
+    background: var(--navy); color: var(--gold); border: none; cursor: pointer;
+    font-family: var(--font-cond); font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 12px; border-radius: var(--radius); transition: all 0.2s;
+  }
+  .btn-shortlist:hover { background: var(--navy3); }
+  .btn-sm {
+    font-family: var(--font-cond); font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 7px 14px; border-radius: var(--radius); border: 1px solid var(--smoke);
+    background: var(--white); color: var(--navy); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-sm:hover { border-color: var(--navy); }
+  .btn-sm.gold { border-color: var(--gold); background: var(--gold); color: var(--navy); }
+
+  /* Applicant table */
+  .applicant-table { width: 100%; border-collapse: collapse; }
+  .applicant-table th {
+    font-family: var(--font-cond); font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
+    padding: 12px 20px; text-align: left;
+    border-bottom: 1px solid var(--smoke); background: rgba(247,243,236,0.5);
+  }
+  .applicant-table td {
+    padding: 14px 20px; border-bottom: 1px solid rgba(232,226,216,0.6);
+    font-size: 14px; color: var(--navy); vertical-align: middle;
+  }
+  .applicant-table tr:hover td { background: rgba(247,243,236,0.6); cursor: pointer; }
+  .score-bar { width: 80px; background: var(--smoke); border-radius: 4px; height: 5px; }
+  .score-fill { height: 100%; border-radius: 4px; background: var(--gold); }
+
+  /* Notification toast */
+  .toast {
+    position: fixed; bottom: 32px; right: 32px; z-index: 300;
+    background: var(--navy); color: var(--white); border-left: 4px solid var(--gold);
+    border-radius: var(--radius); padding: 14px 20px;
+    font-size: 14px; box-shadow: var(--shadow);
+    transform: translateY(80px); opacity: 0; transition: all 0.35s;
+    max-width: 340px;
+  }
+  .toast.show { transform: none; opacity: 1; }
+  .toast-title { font-family: var(--font-cond); font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--gold); margin-bottom: 2px; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--smoke); border-radius: 3px; }
+
+  @media (max-width: 900px) {
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    .pipeline { grid-template-columns: repeat(2, 1fr); }
+    .hr-sidebar { display: none; }
+    .hr-main { margin-left: 0; }
+    .drawer { width: 100%; }
+    .hero h1 { font-size: 48px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-shield">G</div>
+    <span class="nav-brand">GARDA<span>WORLD</span></span>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="active">Careers</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+  <a href="index.html" class="nav-cta">Back to Portfolio</a>
+</nav>
+
+<!-- VIEW TOGGLE -->
+<div class="view-toggle">
+  <button class="vt-btn active" id="btn-careers" onclick="switchView('careers')">Careers Page</button>
+  <button class="vt-btn" id="btn-hr" onclick="switchView('hr')">HR Module</button>
+</div>
+
+<!-- ════════════════════════════════
+     VIEW 1: CAREERS / LANDING PAGE
+════════════════════════════════ -->
+<div class="view active" id="view-careers">
+  <div class="careers-page">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-tag" style="color: #ff0000; background-color: #d4ff00; font-size: medium;">This is a placeholder page that will be active during the development period, It does not accurately reflect the final product either by UI or functionality design.</div>
+        <h1>JOIN<br><span>GARDAWORLD</span><br>TODAY!</h1>
+        <p class="hero-sub">GardaWorld Security Kenya is hiring across all branches. Build a career in professional security with Africa's most trusted force.</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">8,000+</div>
+            <div class="stat-label">Officers Deployed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">45</div>
+            <div class="stat-label">Counties Active</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Open Vacancies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <div class="filter-inner">
+        <button class="filter-tab active" onclick="setTab(this,'All')">All Roles</button>
+        <button class="filter-tab" onclick="setTab(this,'Operations')">Operations</button>
+        <button class="filter-tab" onclick="setTab(this,'Supervisory')">Supervisory</button>
+        <button class="filter-tab" onclick="setTab(this,'Specialist')">Specialist</button>
+        <div class="filter-sep"></div>
+        <div class="search-box">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" placeholder="Search vacancies…"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vacancies -->
+    <div class="vacancies-section">
+      <div class="section-header">
+        <span class="section-title">Open Positions</span>
+        <span class="section-count">12 vacancies across 8 branches</span>
+      </div>
+
+      <!-- Card 1 -->
+      <div class="vacancy-card featured" onclick="openModal('Security Officer – Mombasa Port','Operations · Mombasa')">
+        <div class="vc-main">
+          <div class="vc-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          </div>
+          <div class="vc-body">
+            <div class="vc-top">
+              <div class="vc-role">Security Officer — Mombasa Port</div>
+              <button class="vc-apply-btn" onclick="event.stopPropagation();openModal('Security Officer – Mombasa Port','Operations · Mombasa')">Apply Now</button>
+            </div>
+            <div class="vc-meta">
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Mombasa, Kilindini
+              </span>
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Full-time · Shifts
+              </span>
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                KES 28,000–34,000
+              </span>
+            </div>
+            <p class="vc-desc">Responsible for access control and security operations at Kilindini Harbour. Must hold a valid security licence and Certificate of Highest Education Attained.</p>
+          </div>
+        </div>
+        <div class="vc-tags">
+          <span class="tag tag-type">Operations</span>
+          <span class="tag tag-loc">Mombasa</span>
+          <span class="tag tag-urgent">Urgent</span>
+        </div>
+        <div class="vc-footer">
+          <span class="vc-deadline">Deadline: <strong>30 Apr 2026</strong></span>
+          <span class="vc-applicants"><strong>47</strong> applicants so far</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="vacancy-card" onclick="openModal('Supervisor – Westlands Branch','Supervisory · Nairobi')">
+        <div class="vc-main">
+          <div class="vc-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+          </div>
+          <div class="vc-body">
+            <div class="vc-top">
+              <div class="vc-role">Site Supervisor — Westlands</div>
+              <button class="vc-apply-btn" onclick="event.stopPropagation();openModal('Supervisor – Westlands Branch','Supervisory · Nairobi')">Apply Now</button>
+            </div>
+            <div class="vc-meta">
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Nairobi, Westlands
+              </span>
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Full-time
+              </span>
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                KES 45,000–55,000
+              </span>
+            </div>
+            <p class="vc-desc">Lead a team of security officers across a commercial hub. 3+ years supervisory experience required with strong command skills.</p>
+          </div>
+        </div>
+        <div class="vc-tags">
+          <span class="tag tag-type">Supervisory</span>
+          <span class="tag tag-loc">Nairobi</span>
+          <span class="tag tag-new">New</span>
+        </div>
+        <div class="vc-footer">
+          <span class="vc-deadline">Deadline: <strong>15 May 2026</strong></span>
+          <span class="vc-applicants"><strong>23</strong> applicants so far</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="vacancy-card" onclick="openModal('K9 Handler – Kisumu','Specialist · Kisumu')">
+        <div class="vc-main">
+          <div class="vc-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+          </div>
+          <div class="vc-body">
+            <div class="vc-top">
+              <div class="vc-role">K9 Handler — Kisumu Airport</div>
+              <button class="vc-apply-btn" onclick="event.stopPropagation();openModal('K9 Handler – Kisumu','Specialist · Kisumu')">Apply Now</button>
+            </div>
+            <div class="vc-meta">
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Kisumu, Airport
+              </span>
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Contract · 12 months
+              </span>
+              <span class="vc-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                KES 38,000–44,000
+              </span>
+            </div>
+            <p class="vc-desc">Specialist role requiring certified K9 handling experience. Explosives detection background preferred. KCSE minimum.</p>
+          </div>
+        </div>
+        <div class="vc-tags">
+          <span class="tag tag-type">Specialist</span>
+          <span class="tag tag-loc">Kisumu</span>
+        </div>
+        <div class="vc-footer">
+          <span class="vc-deadline">Deadline: <strong>20 May 2026</strong></span>
+          <span class="vc-applicants"><strong>11</strong> applicants so far</span>
+        </div>
+      </div>
+
+    </div><!-- /vacancies-section -->
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     VIEW 2: HR MODULE
+════════════════════════════════ -->
+<div class="view" id="view-hr">
+  <div class="hr-page">
+
+    <!-- Sidebar -->
+    <aside class="hr-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Recruitment</div>
+        <div class="sidebar-link active">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
+          Applicants
+          <span class="sidebar-badge red">14</span>
+        </div>
+        <div class="sidebar-link" onclick="showToast('Vacancies module opening…')">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Vacancies
+          <span class="sidebar-badge">12</span>
+        </div>
+        <div class="sidebar-link" onclick="showToast('Interview schedule loading…')">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Interviews
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Employees</div>
+        <div class="sidebar-link" onclick="showToast('Employee records loading…')">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          All Staff
+        </div>
+        <div class="sidebar-link" onclick="showToast('Deployments module…')">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+          Deployments
+        </div>
+        <div class="sidebar-link" onclick="showToast('Leave management…')">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Leave
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">System</div>
+        <div class="sidebar-link" onclick="showToast('Audit log opening…')">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Audit Log
+        </div>
+        <div class="sidebar-link" onclick="showToast('Settings panel…')">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+          Settings
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="hr-main">
+      <div class="hr-topbar">
+        <div>
+          <div class="hr-page-title">Applicant Pipeline</div>
+          <div class="hr-page-sub">Review, approve and convert applicants — April 2026</div>
+        </div>
+        <div class="hr-topbar-actions">
+          <button class="btn-sm" onclick="showToast('Exporting report…')">Export CSV</button>
+          <button class="btn-sm gold" onclick="showToast('New vacancy form opening…')">+ Post Vacancy</button>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-strip">
+        <div class="kpi-card gold">
+          <div class="kpi-num">147</div>
+          <div class="kpi-label">Total Applicants</div>
+          <div class="kpi-delta up">↑ 23 this week</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-num">14</div>
+          <div class="kpi-label">Pending Review</div>
+          <div class="kpi-delta down">↑ 6 urgent</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-num">32</div>
+          <div class="kpi-label">Hired This Month</div>
+          <div class="kpi-delta up">↑ 8 vs last month</div>
+        </div>
+        <div class="kpi-card blue">
+          <div class="kpi-num">91%</div>
+          <div class="kpi-label">Doc Completion Rate</div>
+          <div class="kpi-delta up">↑ 4% vs last month</div>
+        </div>
+      </div>
+
+      <!-- Kanban pipeline -->
+      <div class="hr-panel">
+        <div class="hr-panel-header">
+          <div class="hr-panel-title">Live Pipeline</div>
+          <div class="hr-panel-actions">
+            <button class="btn-sm">Filter</button>
+            <button class="btn-sm">By Branch</button>
+          </div>
+        </div>
+        <div class="pipeline">
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title">New</span>
+              <span class="pipeline-count">5</span>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('Timothy Kioko','Security Officer – Mombasa Port')">
+              <div class="ac-top">
+                <div class="ac-avatar">JM</div>
+                <div class="ac-info">
+                  <div class="ac-name">Timothy Kioko</div>
+                  <div class="ac-role">Sec. Officer · Mombasa</div>
+                </div>
+                <span class="ac-badge new">New</span>
+              </div>
+              <div class="ac-meta"><span>Applied 2h ago</span><span>Docs: 2/3</span></div>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('Amina Hassan','Security Officer – Mombasa Port')">
+              <div class="ac-top">
+                <div class="ac-avatar">AH</div>
+                <div class="ac-info">
+                  <div class="ac-name">Amina Hassan</div>
+                  <div class="ac-role">Sec. Officer · Mombasa</div>
+                </div>
+                <span class="ac-badge new">New</span>
+              </div>
+              <div class="ac-meta"><span>Applied 4h ago</span><span>Docs: 3/3</span></div>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('Peter Otieno','K9 Handler – Kisumu')">
+              <div class="ac-top">
+                <div class="ac-avatar">PO</div>
+                <div class="ac-info">
+                  <div class="ac-name">Peter Otieno</div>
+                  <div class="ac-role">K9 Handler · Kisumu</div>
+                </div>
+                <span class="ac-badge new">New</span>
+              </div>
+              <div class="ac-meta"><span>Applied 6h ago</span><span>Docs: 1/3</span></div>
+            </div>
+          </div>
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title">Docs Review</span>
+              <span class="pipeline-count">4</span>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('Sarah Kamau','Site Supervisor – Westlands')">
+              <div class="ac-top">
+                <div class="ac-avatar">SK</div>
+                <div class="ac-info">
+                  <div class="ac-name">Sarah Kamau</div>
+                  <div class="ac-role">Supervisor · Westlands</div>
+                </div>
+                <span class="ac-badge docs">Docs</span>
+              </div>
+              <div class="ac-meta"><span>3 days ago</span><span>KRA pending</span></div>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('David Kipchoge','Security Officer – Mombasa Port')">
+              <div class="ac-top">
+                <div class="ac-avatar">DK</div>
+                <div class="ac-info">
+                  <div class="ac-name">David Kipchoge</div>
+                  <div class="ac-role">Sec. Officer · Mombasa</div>
+                </div>
+                <span class="ac-badge docs">Docs</span>
+              </div>
+              <div class="ac-meta"><span>2 days ago</span><span>Complete</span></div>
+            </div>
+          </div>
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title">Under Review</span>
+              <span class="pipeline-count">3</span>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('Grace Wanjiku','Site Supervisor – Westlands')">
+              <div class="ac-top">
+                <div class="ac-avatar">GW</div>
+                <div class="ac-info">
+                  <div class="ac-name">Grace Wanjiku</div>
+                  <div class="ac-role">Supervisor · Nairobi</div>
+                </div>
+                <span class="ac-badge review">Review</span>
+              </div>
+              <div class="ac-meta"><span>5 days ago</span><span>Score: 88%</span></div>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('John Mutua','K9 Handler – Kisumu')">
+              <div class="ac-top">
+                <div class="ac-avatar">JM</div>
+                <div class="ac-info">
+                  <div class="ac-name">John Mutua</div>
+                  <div class="ac-role">K9 Handler · Kisumu</div>
+                </div>
+                <span class="ac-badge review">Review</span>
+              </div>
+              <div class="ac-meta"><span>4 days ago</span><span>Score: 74%</span></div>
+            </div>
+          </div>
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title">Hired</span>
+              <span class="pipeline-count">32</span>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('Lucy Njeri','Security Officer – Mombasa Port')">
+              <div class="ac-top">
+                <div class="ac-avatar">LN</div>
+                <div class="ac-info">
+                  <div class="ac-name">Lucy Njeri</div>
+                  <div class="ac-role">Sec. Officer · Mombasa</div>
+                </div>
+                <span class="ac-badge hired">Hired</span>
+              </div>
+              <div class="ac-meta"><span>Apr 8</span><span>Converted ✓</span></div>
+            </div>
+            <div class="applicant-card" onclick="openDrawer('Brian Ochieng','Site Supervisor – Westlands')">
+              <div class="ac-top">
+                <div class="ac-avatar">BO</div>
+                <div class="ac-info">
+                  <div class="ac-name">Brian Ochieng</div>
+                  <div class="ac-role">Supervisor · Nairobi</div>
+                </div>
+                <span class="ac-badge hired">Hired</span>
+              </div>
+              <div class="ac-meta"><span>Apr 6</span><span>Converted ✓</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Applicant table -->
+      <div class="hr-panel">
+        <div class="hr-panel-header">
+          <div class="hr-panel-title">All Applicants — Pending Action</div>
+          <div class="hr-panel-actions">
+            <button class="btn-sm">Sort by date</button>
+          </div>
+        </div>
+        <table class="applicant-table">
+          <thead>
+            <tr>
+              <th>Applicant</th>
+              <th>Position</th>
+              <th>Branch</th>
+              <th>Docs</th>
+              <th>Score</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="openDrawer('Timothy Kioko','Security Officer – Mombasa Port')">
+              <td><strong>Timothy Kioko</strong><br><span style="font-size:12px;color:var(--muted)">ID: 29384756</span></td>
+              <td>Security Officer</td>
+              <td>Mombasa</td>
+              <td>2 / 3</td>
+              <td><div class="score-bar"><div class="score-fill" style="width:66%"></div></div></td>
+              <td><span class="status-pill pending">Pending</span></td>
+              <td><button class="btn-sm" onclick="event.stopPropagation();openDrawer('Timothy Kioko','Security Officer – Mombasa Port')">Review</button></td>
+            </tr>
+            <tr onclick="openDrawer('Amina Hassan','Security Officer – Mombasa Port')">
+              <td><strong>Amina Hassan</strong><br><span style="font-size:12px;color:var(--muted)">ID: 38472910</span></td>
+              <td>Security Officer</td>
+              <td>Mombasa</td>
+              <td>3 / 3</td>
+              <td><div class="score-bar"><div class="score-fill" style="width:88%"></div></div></td>
+              <td><span class="status-pill verified">Docs OK</span></td>
+              <td><button class="btn-sm" onclick="event.stopPropagation();openDrawer('Amina Hassan','Security Officer – Mombasa Port')">Review</button></td>
+            </tr>
+            <tr onclick="openDrawer('Grace Wanjiku','Site Supervisor – Westlands')">
+              <td><strong>Grace Wanjiku</strong><br><span style="font-size:12px;color:var(--muted)">ID: 47283019</span></td>
+              <td>Site Supervisor</td>
+              <td>Westlands</td>
+              <td>3 / 3</td>
+              <td><div class="score-bar"><div class="score-fill" style="width:88%"></div></div></td>
+              <td><span class="status-pill verified">Shortlisted</span></td>
+              <td><button class="btn-sm" onclick="event.stopPropagation();openDrawer('Grace Wanjiku','Site Supervisor – Westlands')">Review</button></td>
+            </tr>
+            <tr onclick="openDrawer('Peter Otieno','K9 Handler – Kisumu')">
+              <td><strong>Peter Otieno</strong><br><span style="font-size:12px;color:var(--muted)">ID: 56192034</span></td>
+              <td>K9 Handler</td>
+              <td>Kisumu</td>
+              <td>1 / 3</td>
+              <td><div class="score-bar"><div class="score-fill" style="width:33%"></div></div></td>
+              <td><span class="status-pill flagged">Docs Missing</span></td>
+              <td><button class="btn-sm" onclick="event.stopPropagation();openDrawer('Peter Otieno','K9 Handler – Kisumu')">Review</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ═══ APPLY MODAL ═══ -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modalRoleTitle">Apply Now</div>
+        <div class="modal-sub" id="modalRoleSub">Fill in your details carefully</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-2col">
+        <div class="form-row">
+          <label>First Name <span>*</span></label>
+          <input class="form-input" type="text" placeholder="e.g. Timothy"/>
+        </div>
+        <div class="form-row">
+          <label>Last Name <span>*</span></label>
+          <input class="form-input" type="text" placeholder="e.g. Kioko"/>
+        </div>
+      </div>
+      <div class="form-2col">
+        <div class="form-row">
+          <label>Phone Number <span>*</span></label>
+          <input class="form-input" type="tel" placeholder="+254 7XX XXX XXX"/>
+        </div>
+        <div class="form-row">
+          <label>National ID <span>*</span></label>
+          <input class="form-input" type="text" placeholder="8-digit ID number"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Email Address</label>
+        <input class="form-input" type="email" placeholder="timothy.kioko@example.com"/>
+      </div>
+      <div class="form-row">
+        <label>Required Documents <span>*</span></label>
+        <div class="doc-list">
+          <div class="doc-item"><span class="doc-item-status req"></span><span class="doc-item-label">Certificate of Highest Education Attained</span><span class="doc-item-req">Required</span></div>
+          <div class="doc-item"><span class="doc-item-status req"></span><span class="doc-item-label">Good Conduct (DCI)</span><span class="doc-item-req">Required</span></div>
+          <div class="doc-item"><span class="doc-item-status req"></span><span class="doc-item-label">National ID/Passport</span><span class="doc-item-req">Required</span></div>
+          <div class="doc-item"><span class="doc-item-status opt"></span><span class="doc-item-label">Application Letter</span><span class="doc-item-req">Optional</span></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Upload Documents <span>*</span></label>
+        <div class="upload-zone" onclick="showToast('File picker would open here')">
+          <div class="upload-zone-icon">📎</div>
+          <div class="upload-zone-text"><strong>Click to upload</strong> or drag & drop<br>PDF or JPEG · Max 5 MB each</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="progress-steps">
+        <div class="pstep done"></div>
+        <div class="pstep done"></div>
+        <div class="pstep active"></div>
+        <div class="pstep"></div>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="btn-ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn-primary" onclick="submitApplication()">Submit Application →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ APPLICANT DETAIL DRAWER ═══ -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="detailDrawer">
+  <div class="drawer-header">
+    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+    <div class="drawer-applicant-name" id="drawerName">Timothy Kioko</div>
+    <div class="drawer-role" id="drawerRole">Security Officer — Mombasa Port</div>
+    <div class="drawer-status-row">
+      <span class="status-pill pending">Pending Review</span>
+      <span class="status-pill verified">2 / 3 Docs</span>
+    </div>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-section">
+      <div class="drawer-section-title">Personal Information</div>
+      <div class="info-grid">
+        <div><div class="info-item-label">Full Name</div><div class="info-item-value" id="dName">Timothy Kioko</div></div>
+        <div><div class="info-item-label">National ID</div><div class="info-item-value">29 384 756</div></div>
+        <div><div class="info-item-label">Phone</div><div class="info-item-value">+254 712 345 678</div></div>
+        <div><div class="info-item-label">Email</div><div class="info-item-value">james.m@gmail.com</div></div>
+        <div><div class="info-item-label">Applied For</div><div class="info-item-value" id="dRole">Sec. Officer</div></div>
+        <div><div class="info-item-label">Branch</div><div class="info-item-value">Mombasa</div></div>
+        <div><div class="info-item-label">Applied On</div><div class="info-item-value">12 Apr 2026</div></div>
+        <div><div class="info-item-label">Vacancy ID</div><div class="info-item-value">#VAC-2026-041</div></div>
+      </div>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Document Verification</div>
+      <div class="doc-check-list">
+        <div class="doc-check-item">
+          <div class="doc-check-icon ok">✅</div>
+          <div class="doc-check-name">Certificate of Highest Education Attained</div>
+          <span class="doc-check-action" onclick="showToast('Opening document preview…')">View</span>
+        </div>
+        <div class="doc-check-item">
+          <div class="doc-check-icon ok">✅</div>
+          <div class="doc-check-name">National ID/Passport</div>
+          <span class="doc-check-action" onclick="showToast('Opening document preview…')">View</span>
+        </div>
+        <div class="doc-check-item">
+          <div class="doc-check-icon missing">❌</div>
+          <div class="doc-check-name">Good Conduct (DCI)</div>
+          <span class="doc-check-action" onclick="showToast('Reminder sent to applicant')">Send Reminder</span>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">HR Notes</div>
+      <textarea class="form-input" style="height:80px;resize:none" placeholder="Add internal notes (not visible to applicant)…"></textarea>
+    </div>
+    <div class="action-bar">
+      <button class="btn-hire" onclick="hireApplicant()">✓ Mark as Hired</button>
+      <button class="btn-reject" onclick="rejectApplicant()">✕ Reject</button>
+      <button class="btn-shortlist" onclick="shortlistApplicant()">★ Move to Shortlist</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <div class="toast-title" id="toastTitle">Action Complete</div>
+  <div id="toastMsg">Operation was successful.</div>
+</div>
+
+<script>
+  function switchView(v) {
+    document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+    document.getElementById('view-' + v).classList.add('active');
+    document.getElementById('btn-careers').classList.toggle('active', v === 'careers');
+    document.getElementById('btn-hr').classList.toggle('active', v === 'hr');
+    window.scrollTo(0,0);
+  }
+  function setTab(el, tab) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+  function openModal(role, sub) {
+    document.getElementById('modalRoleTitle').textContent = role;
+    document.getElementById('modalRoleSub').textContent = sub;
+    document.getElementById('applyModal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('applyModal').classList.remove('open');
+  }
+  function submitApplication() {
+    closeModal();
+    showToast('Application Submitted!', 'Your application has been received. We will contact you shortly.');
+  }
+
+  function openDrawer(name, role) {
+    document.getElementById('drawerName').textContent = name;
+    document.getElementById('drawerRole').textContent = role;
+    document.getElementById('dName').textContent = name;
+    document.getElementById('dRole').textContent = role.split('–')[0].trim();
+    document.getElementById('drawerOverlay').classList.add('open');
+    document.getElementById('detailDrawer').classList.add('open');
+  }
+  function closeDrawer() {
+    document.getElementById('drawerOverlay').classList.remove('open');
+    document.getElementById('detailDrawer').classList.remove('open');
+  }
+  function hireApplicant() {
+    closeDrawer();
+    showToast('Applicant Hired!', 'Record moved to employees table. Mailgun notification sent to Branch Manager.');
+  }
+  function rejectApplicant() {
+    closeDrawer();
+    showToast('Applicant Rejected', 'Record updated. Audit log entry created.');
+  }
+  function shortlistApplicant() {
+    closeDrawer();
+    showToast('Shortlisted', 'Applicant moved to shortlist stage.');
+  }
+  let toastTimer;
+  function showToast(title, msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title || 'Done';
+    document.getElementById('toastMsg').textContent = msg || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+  }
+  document.getElementById('applyModal').addEventListener('click', function(e){
+    if(e.target === this) closeModal();
+  });
+</script>
+</body>
+</html>
