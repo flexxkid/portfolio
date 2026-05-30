@@ -6,8 +6,10 @@
   <title>Full-Stack Developer - TIM</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="footer.css"/>
 </head>
-<body>
+<body id="top">
 
   <div class="bg-glow"></div>
 
@@ -24,49 +26,53 @@
     <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta">Hire Me</a>
 
     <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-<!-- MOBILE MENU -->
- <div class="nav-mobile" id="navMobile">
-  <ul class="nav-mobile-links">
-    <li ><a href="testcontacts.html" onclick="closeMobileNav()">Test</a></li>
-    <li ><a href="index.html#services" onclick="closeMobileNav()">Services</a></li>
-    <li ><a href="about.html" onclick="closeMobileNav()">About</a></li>
-    <li><a href="projects.html" onclick="closeMobileNav()">Projects</a></li>
-    <li><a href="skills.html" onclick="closeMobileNav()">Skills</a></li>
-    <li><a href="contacts.html" onclick="closeMobileNav()">Contact</a></li>
-  </ul>
-  <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
-  </div>
+    <!-- MOBILE MENU -->
+    <div class="nav-mobile" id="navMobile">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html#services" onclick="closeMobileNav()">Services</a></li>
+        <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+        <li><a href="projects.html" onclick="closeMobileNav()">Projects</a></li>
+        <li><a href="skills.html" onclick="closeMobileNav()">Skills</a></li>
+        <li><a href="contacts.html" onclick="closeMobileNav()">Contact</a></li>
+      </ul>
+      <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
+    </div>
   </nav>
 
-  
-
   <!-- HERO -->
-    <section class="hero">
+  <section class="hero">
+
+    <!-- floating ambient orbs -->
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+    </div>
 
     <!-- LEFT COLUMN -->
     <div class="hero-left">
-      <div class="hero-tag">Full-stack Developer</div>
+      <div class="hero-tag reveal d-1">Full-stack Developer</div>
 
-      <h1 class="hero-name">
+      <h1 class="hero-name reveal d-2">
         Timothy<br><span>Mule.</span>
       </h1>
 
-      <div class="hero-title">PHP · React · SQL · linux</div>
-        
-      <p class="hero-desc">
-            Most of my projects start with a real problem a business is actually dealing with. 
-            Right now that's an organisation managing thousands of employee records manually <strong style="color: #3ec878;">(HRMS)</strong>. I study 
-            <strong>BSc Computer Science</strong> at Kenyatta University, specialising in 
-            <strong>Net-Centric Computing</strong>, and write full-stack applications using 
-            <strong>Laravel, React and MySQL</strong>.
-        </p>
+      <div class="hero-title reveal d-3">Developer · Network Designer · Network Administator</div>
 
-      <div class="hero-actions">
+      <p class="hero-desc reveal d-4">
+        <strong style="color: #3ec878;">Full-Stack Developer | Net-Centric Computing</strong></br>
+        I solve manual business bottlenecks through code. Leveraging my specialization in Net-Centric Computing,
+        I design end-to-end solutions that prioritize data integrity, system security and fast performance.
+        Currently building an enterprise-grade HR Management System with <strong>Laravel</strong> and <strong>React</strong>.
+        Final-year Bsc. Computer Science student at Kenyatta University.
+      </p>
+
+      <div class="hero-actions reveal d-5">
         <a href="projects.html" class="btn-primary">
           My Projects
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -85,12 +91,12 @@
     <!-- RIGHT COLUMN -->
     <div class="hero-right">
 
-      <div class="availability">
+      <div class="availability reveal from-right d-2">
         <span class="dot"></span>
         Available for freelance projects
       </div>
 
-      <div class="stack-card">
+      <div class="stack-card reveal from-right d-3">
         <div class="stack-label">Tech Stack</div>
         <div class="stack-pills">
           <span class="pill">PHP-Laravel</span>
@@ -98,21 +104,21 @@
           <span class="pill">HTML</span>
           <span class="pill">CSS</span>
           <span class="pill">Git</span>
-          <span class="pill">MongoDB</span>
-          <span class="pill">MySQL</span>
+          <span class="pill">MariaDB</span>
           <span class="pill">Linux/Terminal</span>
-          <span href=#service class="pill">XAMPP/Apache</span>
+          <span class="pill">Packet Tracer</span>
+          <span class="pill">Wireshark</span>
         </div>
       </div>
 
-      <div class="stat-row">
+      <div class="stat-row reveal from-right d-4">
         <div class="stat">
           <div class="stat-number">3+</div>
           <div class="stat-label">Years Coding</div>
         </div>
         <div class="stat">
           <div class="stat-number">5+</div>
-          <div class="stat-label">Projects & Contributions</div>
+          <div class="stat-label">Projects &amp; Contributions</div>
         </div>
         <div class="stat">
           <div class="stat-number">1</div>
@@ -120,9 +126,9 @@
         </div>
       </div>
 
-      <p class="hint">↓ Click the card to open the project page</p>
+      <p class="hint reveal from-right d-5">↓ Click the card to open the project page</p>
 
-      <a href="hrms-project.html" class="project-card">
+      <a href="hrms-project.html" class="project-card reveal from-right d-5">
         <div class="project-card-top">
           <div class="stack-label">Ongoing Project</div>
           <span class="project-status">
@@ -132,13 +138,14 @@
         <h3 class="project-headline">HRMS for a Security Org.</h3>
         <p class="project-subline">Digitizing HR operations for Kenya's growing security firm</p>
         <p class="building-text">
-          Built a custom <strong>HR Management System</strong> for a security company, replacing a paper-based system that managed thousands of employee records</p>
+          Built a custom <strong>HR Management System</strong> for a security company, replacing a paper-based system that managed thousands of employee records. The system also digitizes HR operations like employee onboarding, training management, attendance tracking, payroll processing and performance evaluations.
+        </p>
         <div class="project-card-footer">
           <div class="stack-pills" style="margin-top: 0;">
             <span class="pill">PHP-Laravel</span>
             <span class="pill">React</span>
             <span class="pill">MySQL</span>
-            <span class="pill">Doker</span>
+            <span class="pill">Docker</span>
           </div>
           <span class="project-arrow">
             View Case Study
@@ -151,33 +158,31 @@
 
     </div>
 
-    
-    <!-- DECORATIVE ELEMENTS -->
-    <br>
-
     <div class="scroll-hint">
       <span>Scroll</span>
       <div class="scroll-line"></div>
-  </div>
+    </div>
 
-    </section>
+  </section>
 
-    <!-- SERVICES -->
+  <!-- ANIMATED SECTION DIVIDER -->
+  <div class="section-divider" aria-hidden="true"></div>
 
-    <section class="services-section" id="services">
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
 
     <div class="services-header">
-      <div class="hero-tag">What I Offer</div>
-      <h2 class="services-title">SERVICES built around<br><span>Real Problems.</span></h2>
-      <p class="services-intro">
-        Whether you are moving away from spreadsheets or launching a new customer platform, 
+      <div class="hero-tag reveal">What I Offer</div>
+      <h2 class="services-title reveal d-1">SERVICES built around<br><span>Real Problems.</span></h2>
+      <p class="services-intro reveal d-2">
+        Whether you are moving away from spreadsheets or launching a new customer platform,
         I provide the custom architecture and technical management needed to power your operations reliably.
       </p>
     </div>
 
     <div class="services-grid">
 
-      <div class="service-card">
+      <div class="service-card reveal from-scale d-1">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <polyline points="16 18 22 12 16 6"/>
@@ -186,15 +191,16 @@
         </div>
         <div class="service-number">01</div>
         <h3 class="service-title">Software / Web App Development</h3>
-        <p class="service-desc">I build full-stack web applications using Laravel and React — from business management tools to customer portals, designed around your workflow rather than off-the-shelf limitations.</p>
+        <p class="service-desc">I build full-stack web applications using Laravel and React, from business management tools to customer portals,
+                                designed around your workflow ensuring the technology adapts to you, rather than forcing you to change how you work.</p>
         <div class="service-pills">
           <span class="pill">Laravel</span>
           <span class="pill">React</span>
-          <span class="pill">MySQL</span>
+          <span class="pill">SQL</span>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal from-scale d-2">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M4 6h16M4 12h16M4 18h7"/>
@@ -202,16 +208,17 @@
           </svg>
         </div>
         <div class="service-number">02</div>
-        <h3 class="service-title">Network Management</h3>
-        <p class="service-desc">I design and build secure, well-documented APIs that connect your frontend, mobile app, or third-party services — authenticated, tested, and ready for production.</p>
+        <h3 class="service-title">Network Design &amp; Administration</h3>
+        <p class="service-desc">I specialize in architecting secure, high-performance infrastructures tailored to your physical space and operational needs.
+                                I provide end-to-end network administration, from initial cabling and topology design to active monitoring and security.</p>
         <div class="service-pills">
-          <span class="pill">Laravel</span>
-          <span class="pill">REST APIs</span>
-          <span class="pill">Sanctum</span>
+          <span class="pill">Packet Tracer</span>
+          <span class="pill">CMD</span>
+          <span class="pill">Wireshark</span>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal from-scale d-3">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <ellipse cx="12" cy="5" rx="9" ry="3"/>
@@ -220,16 +227,16 @@
           </svg>
         </div>
         <div class="service-number">03</div>
-        <h3 class="service-title">Database Design & Optimisation</h3>
-        <p class="service-desc">I architect relational databases using MySQL — handling schema design, indexing, query optimisation, and data migration for businesses moving away from spreadsheets or legacy systems.</p>
+        <h3 class="service-title">Database Design &amp; Optimisation</h3>
+        <p class="service-desc">I architect relational databases using MariaDB, handling schema design, indexing, query optimisation and data migration for businesses moving away from spreadsheets or legacy systems.</p>
         <div class="service-pills">
           <span class="pill">MySQL</span>
-          <span class="pill">PHP</span>
-          <span class="pill">Laravel</span>
+          <span class="pill">MariaDB</span>
+          <span class="pill">MongoDB</span>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal from-scale d-1">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="3"/>
@@ -238,16 +245,16 @@
           </svg>
         </div>
         <div class="service-number">04</div>
-        <h3 class="service-title">DevOps & Deployment</h3>
-        <p class="service-desc">I set up CI/CD pipelines, configure servers, and manage cloud deployments so your application runs reliably in production — clean infrastructure with fewer surprises.</p>
+        <h3 class="service-title">DevOps &amp; Deployment</h3>
+        <p class="service-desc">I set up CI/CD pipelines, configure servers and manage cloud deployments so your application runs reliably in production, clean infrastructure with fewer surprises.</p>
         <div class="service-pills">
-          <span class="pill">Git</span>
-          <span class="pill">Linux</span>
-          <span class="pill">AWS S3</span>
+          <span class="pill">Github Actions</span>
+          <span class="pill">Docker</span>
+          <span class="pill">Kubernetes</span>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal from-scale d-2">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
@@ -256,16 +263,15 @@
           </svg>
         </div>
         <div class="service-number">05</div>
-        <h3 class="service-title">UI Optimisation</h3>
-        <p class="service-desc">I audit and improve existing interfaces for speed, responsiveness, and usability — if your web app works but feels slow or broken on mobile, I'll fix it.</p>
+        <h3 class="service-title">Optimisation</h3>
+        <p class="service-desc">I audit and improve existing interfaces for speed, responsiveness and usability, if your web app works but feels slow or broken on mobile, I'll fix it.</p>
         <div class="service-pills">
-          <span class="pill">React</span>
-          <span class="pill">CSS</span>
-          <span class="pill">Performance</span>
+          <span class="pill">Redis</span>
+          <span class="pill">Compression Technologies</span>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal from-scale d-3">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -273,7 +279,7 @@
         </div>
         <div class="service-number">06</div>
         <h3 class="service-title">Software Security</h3>
-        <p class="service-desc">I identify and resolve security weaknesses in web applications — covering authentication flaws, insecure data handling, and misconfigured permissions to keep your users' data properly protected.</p>
+        <p class="service-desc">I identify and resolve security weaknesses in web applications covering authentication flaws, hardening permissions to keep your users' data properly protected.</p>
         <div class="service-pills">
           <span class="pill">Cybersecurity</span>
           <span class="pill">Laravel</span>
@@ -283,16 +289,197 @@
 
     </div>
 
-    <p class="services-cta-note">
+    <p class="services-cta-note reveal">
       Not sure which applies to you?
       <a href="contacts.html">Describe your problem</a> and I'll tell you how I can help.
     </p>
     <br>
-      <div margin-bottom = "0.5rem" class="corner-mark">Nairobi, Kenya · 2025</div>
+    <div class="corner-mark">Nairobi, Kenya · 2025</div>
 
   </section>
 
-    <script src="scripts.js"></script>
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <!-- BRAND -->
+        <div class="footer-brand reveal">
+          <a href="index.html#top" class="footer-logo" aria-label="TIM.dev home">
+            <!-- Recreated logo mark: hexagon ring + interlocking spool core -->
+            <span class="footer-logo-tile">
+              <svg class="footer-logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- thick hexagon ring (matches logo's outer band) -->
+                <path class="logo-hex"
+                  d="M60 10 L103 34.5 L103 85.5 L60 110 L17 85.5 L17 34.5 Z"
+                  stroke="#3ec878" stroke-width="11" stroke-linejoin="round"/>
+                <!-- interlocking core: top bar + vertical spool (the 'T') -->
+                <g class="logo-core">
+                  <rect x="40" y="40" width="40" height="11" rx="1.5" fill="#5dde8e"/>
+                  <rect x="53.5" y="40" width="13" height="40" rx="1.5" fill="#3ec878"/>
+                </g>
+              </svg>
+            </span>
+            <span class="footer-logo-word">TIM<span>.dev</span></span>
+          </a>
+
+          <p class="footer-tagline">
+            Full-stack developer specializing in Net-Centric Computing — building
+            secure, reliable systems for Kenya's growing businesses.
+          </p>
+
+          <div class="footer-status">
+            <span class="footer-dot"></span>
+            Available for freelance
+          </div>
+        </div>
+
+        <!-- NAVIGATE -->
+        <nav class="footer-col reveal d-1" aria-label="Footer navigation">
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+          </ul>
+        </nav>
+
+        <!-- SERVICES -->
+        <nav class="footer-col reveal d-2" aria-label="Services">
+          <div class="footer-col-title">Expertise</div>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">Network Design</a></li>
+            <li><a href="index.html#services">Database Design</a></li>
+            <li><a href="index.html#services">DevOps</a></li>
+            <li><a href="index.html#services">Software Security</a></li>
+          </ul>
+        </nav>
+
+        <!-- CONTACT -->
+        <div class="footer-col reveal d-3">
+          <div class="footer-col-title">Get in Touch</div>
+
+          <a href="mailto:timothy.kioko001@gmail.com" class="footer-contact-row">
+            <span class="footer-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 6L2 7"/>
+              </svg>
+            </span>
+            <span class="footer-contact-text">timothy.kioko001@gmail.com</span>
+          </a>
+
+          <a href="https://developertim.com" target="_blank" rel="noopener" class="footer-contact-row">
+            <span class="footer-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+              </svg>
+            </span>
+            <span class="footer-contact-text">developertim.com</span>
+          </a>
+
+          <div class="footer-contact-row" style="cursor:default;">
+            <span class="footer-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span class="footer-contact-text">Nairobi, Kenya</span>
+          </div>
+
+          <!-- SOCIALS -->
+          <div class="footer-socials">
+            <a href="https://github.com/flexxkid" target="_blank" rel="noopener" class="footer-social" aria-label="GitHub">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05A9.4 9.4 0 0112 6.84c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V10.5H5.67v7.84h2.67zM7 9.34a1.55 1.55 0 100-3.1 1.55 1.55 0 000 3.1zm11.34 9V14c0-2.3-1.23-3.37-2.87-3.37-1.32 0-1.91.73-2.24 1.24v-1.06h-2.67v7.84h2.67v-4.38c0-.23.02-.46.09-.63.18-.46.6-.94 1.31-.94.92 0 1.29.7 1.29 1.73v4.22h2.67z"/>
+              </svg>
+            </a>
+            <a href="mailto:timothy.kioko001@gmail.com" class="footer-social" aria-label="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 6L2 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BIG WORDMARK -->
+      <div class="footer-wordmark" aria-hidden="true">
+        <div class="footer-wordmark-text">TIM<span>.dev</span></div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <span>Timothy K. Mule</span> — All rights reserved.</div>
+      <div class="footer-meta">
+        <span>Built with Laravel-grade discipline</span>
+        <span class="footer-meta-sep">·</span>
+        <a href="#top" class="footer-totop">
+          Back to top
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+
+  <!-- MOTION: scroll-reveal observer + mobile-nav fallbacks -->
+  <script>
+    (function () {
+      // ── Scroll-reveal via IntersectionObserver ──
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && reveals.length) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        reveals.forEach(function (el) {
+          // anything already on-screen at load reveals immediately
+          var r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) {
+            el.classList.add('is-visible');
+          } else {
+            io.observe(el);
+          }
+        });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      // Safety net: any .reveal scrolled near/past the viewport still shows.
+      window.addEventListener('scroll', function () {
+        document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.95) el.classList.add('is-visible');
+        });
+      }, { passive: true });
+
+      // ── Mobile nav toggle (fallback if scripts.js doesn't bind it) ──
+      
+    })();
+  </script>
 
 </body>
 </html>
