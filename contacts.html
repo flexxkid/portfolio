@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact — Timothy K. Mule</title>
+  <title>Contact — TIM.DEV</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
-  ,<link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="footer.css"/>
+  <link rel="stylesheet" href="contacts.css"/>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="contactsform.js"></script>
 </head>
 <body>
 
   <div class="bg-glow"></div>
 
   <!-- NAV -->
-   <nav>
+  <nav>
     <div class="nav-logo">TIM.dev</div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -27,22 +27,22 @@
     <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta">Hire Me</a>
 
     <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-<!-- MOBILE MENU -->
- <div class="nav-mobile" id="navMobile">
- <ul class="nav-mobile-links">
-    <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
-    <li ><a href="index.html#services" onclick="closeMobileNav()">Services</a></li>
-    <li ><a href="about.html" onclick="closeMobileNav()">About</a></li>
-    <li><a href="projects.html" onclick="closeMobileNav()">Projects</a></li>
-    <li><a href="skills.html" onclick="closeMobileNav()">Skills</a></li>
-  </ul>
-  <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
-  </div>
+    <!-- MOBILE MENU -->
+    <div class="nav-mobile" id="navMobile">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
+        <li><a href="index.html#services" onclick="closeMobileNav()">Services</a></li>
+        <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+        <li><a href="projects.html" onclick="closeMobileNav()">Projects</a></li>
+        <li><a href="skills.html" onclick="closeMobileNav()">Skills</a></li>
+      </ul>
+      <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
+    </div>
   </nav>
 
   <!-- CONTACT PAGE WRAPPER -->
@@ -57,7 +57,7 @@
     </a>
 
     <!-- PAGE HEADER -->
-    <div class="contact-header">
+    <div class="contact-header fade-up">
       <div class="hero-tag">Get In Touch</div>
       <h1 class="contact-title">
         Let's build something<br><span>that matters.</span>
@@ -72,62 +72,118 @@
     <div class="contact-grid">
 
       <!-- LEFT — FORM -->
-<div class="contact-form-col">
-  <div class="stack-label">Send a Message</div>
+      <div class="contact-form-col fade-up delay-1">
+        <div class="stack-label">Send a Message</div>
 
-  <div class="contact-form">
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label" for="name">Your Name</label>
-        <input class="form-input" type="text" id="name" name="name" placeholder="John Kamau" />
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="email">Email Address</label>
-        <input class="form-input" type="email" id="email" name="email" placeholder="john@company.com" />
-      </div>
-    </div>
+        <div class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Your Name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="John Kamau" autocomplete="name" />
+              <span class="field-error" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="john@company.com" autocomplete="email" />
+              <span class="field-error" id="err-email"></span>
+            </div>
+          </div>
 
-    <div class="form-group">
-      <label class="form-label" for="subject">Subject</label>
-      <input class="form-input" type="text" id="subject" name="subject" placeholder="System application for my business" />
-    </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" name="subject" placeholder="System application for my business" />
+            <span class="field-error" id="err-subject"></span>
+          </div>
 
-    <div class="form-group">
-      <label class="form-label" for="budget">Budget Range (Optional)</label>
-      <select class="form-input form-select" id="budget" name="budget">
-        <option value="" disabled selected>Select a range</option>
-        <option value="Under KSh 5,000">Under KSh 5,000</option>
-        <option value="KSh 5,000 — 15,000">KSh 5,000 — 15,000</option>
-        <option value="KSh 15,000 — 50,000">KSh 15,000 — 50,000</option>
-        <option value="KSh 50,000+">KSh 50,000+</option>
-        <option value="Prefer to discuss">Prefer to discuss</option>
-      </select>
-    </div>
+          <!-- SERVICE PICKER -->
+          <div class="form-group">
+            <label class="form-label" id="svcLabel">What do you need? <em class="form-label-hint">(pick a service)</em></label>
 
-    <div class="form-group">
-      <label class="form-label" for="message">Message</label>
-      <textarea class="form-input form-textarea" id="message" name="message" placeholder="Tell me about your project — what you're building, what problem it solves, and what you need from a developer..."></textarea>
-    </div>
+            <div class="svc-picker" id="svcPicker">
+              <button type="button" class="form-input svc-trigger" id="svcTrigger"
+                aria-haspopup="listbox" aria-expanded="false" aria-labelledby="svcLabel svcTriggerText">
+                <span class="svc-trigger-text" id="svcTriggerText" data-placeholder="true">Select a service</span>
+                <svg class="svc-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
 
-    <!-- feedback shown after submission -->
-    <div id="form-feedback" style="display:none;"></div>
+              <ul class="svc-panel" id="svcPanel" role="listbox" aria-labelledby="svcLabel" tabindex="-1">
+                <li class="svc-option" role="option" data-value="Software / Web App Development" style="--opt-i: 0;">
+                  <span class="svc-num">01</span>
+                  <span class="svc-body">
+                    <span class="svc-name">Software / Web App Development</span>
+                    <span class="svc-tech">Laravel · React · SQL</span>
+                  </span>
+                </li>
+                <li class="svc-option" role="option" data-value="Network Design & Administration" style="--opt-i: 1;">
+                  <span class="svc-num">02</span>
+                  <span class="svc-body">
+                    <span class="svc-name">Network Design &amp; Administration</span>
+                    <span class="svc-tech">Packet Tracer · CMD · Wireshark</span>
+                  </span>
+                </li>
+                <li class="svc-option" role="option" data-value="Database Design & Optimisation" style="--opt-i: 2;">
+                  <span class="svc-num">03</span>
+                  <span class="svc-body">
+                    <span class="svc-name">Database Design &amp; Optimisation</span>
+                    <span class="svc-tech">MySQL · MariaDB · MongoDB</span>
+                  </span>
+                </li>
+                <li class="svc-option" role="option" data-value="DevOps & Deployment" style="--opt-i: 3;">
+                  <span class="svc-num">04</span>
+                  <span class="svc-body">
+                    <span class="svc-name">DevOps &amp; Deployment</span>
+                    <span class="svc-tech">GitHub Actions · Docker · Kubernetes</span>
+                  </span>
+                </li>
+                <li class="svc-option" role="option" data-value="Optimisation" style="--opt-i: 4;">
+                  <span class="svc-num">05</span>
+                  <span class="svc-body">
+                    <span class="svc-name">Optimisation</span>
+                    <span class="svc-tech">Redis · Compression Technologies</span>
+                  </span>
+                </li>
+                <li class="svc-option" role="option" data-value="Software Security" style="--opt-i: 5;">
+                  <span class="svc-num">06</span>
+                  <span class="svc-body">
+                    <span class="svc-name">Software Security</span>
+                    <span class="svc-tech">Cybersecurity · Laravel</span>
+                  </span>
+                </li>
+              </ul>
 
-    <button type="button" class="btn-primary form-submit" id="sendBtn" onclick="sendMessage()">
-      Send Message
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </button>
-  </div>
-</div>
-      <!-- RIGHT — CONTACT INFO -->
-      <div class="contact-info-col">
+              <input type="hidden" id="service" name="service" value="" />
+            </div>
+            <span class="field-error" id="err-service"></span>
+          </div>
 
-        <!-- AVAILABILITY -->
-        <div class="availability">
-          <span class="dot"></span>
-          Available for new projects
+          <div class="form-group">
+            <div class="form-label-row">
+              <label class="form-label" for="message">Message</label>
+              <span class="char-count" id="charCount">0 / 1000</span>
+            </div>
+            <textarea class="form-input form-textarea" id="message" name="message" maxlength="1000"
+              placeholder="Tell me about your project — what you're building, what problem it solves, and what you need from a developer..."></textarea>
+            <span class="field-error" id="err-message"></span>
+          </div>
+
+          <button type="button" class="btn-primary form-submit send-btn" id="sendBtn">
+            <span class="send-spinner" id="sendSpinner" aria-hidden="true"></span>
+            <span id="sendBtnLabel">Send Message</span>
+            <svg id="sendBtnArrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <p class="send-note" id="sendNote"></p>
         </div>
+      </div>
+
+      <!-- RIGHT — CONTACT INFO -->
+      <div class="contact-info-col fade-up delay-2">
+
+        <br>
 
         <!-- DIRECT CONTACTS -->
         <div class="contact-info-card">
@@ -219,7 +275,57 @@
 
     </div>
   </div>
-        <!-- ════════════════════ FOOTER ════════════════════ -->
+
+  <!-- ════════ MESSAGE STATUS MODAL ════════ -->
+  <div class="msg-overlay" id="msgOverlay" role="dialog" aria-modal="true" aria-labelledby="msgTitle" hidden>
+    <div class="msg-modal" id="msgModal">
+      <button class="msg-close" id="msgClose" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- STATUS ICON -->
+      <div class="msg-icon" id="msgIcon">
+        <!-- success check (path animates) -->
+        <svg class="msg-icon-svg msg-icon-success" viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="msg-ring" cx="26" cy="26" r="24" fill="none"/>
+          <path class="msg-check" fill="none" d="M14 27l8 8 16-17"/>
+        </svg>
+        <!-- attention icon -->
+        <svg class="msg-icon-svg msg-icon-issue" viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="msg-ring" cx="26" cy="26" r="24" fill="none"/>
+          <path class="msg-mark" fill="none" d="M26 14v16"/>
+          <circle class="msg-mark-dot" cx="26" cy="37" r="1.8"/>
+        </svg>
+      </div>
+
+      <h2 class="msg-title" id="msgTitle">Message sent</h2>
+      <p class="msg-body" id="msgBody">Thanks for reaching out — I'll get back to you within 24 hours on weekdays.</p>
+
+      <!-- HELP STEPS (failure only) -->
+      <ul class="msg-steps" id="msgSteps" hidden>
+        <li style="--step-i: 0;">Check that you're connected to the internet</li>
+        <li style="--step-i: 1;">Wait a moment, then try sending again</li>
+        <li style="--step-i: 2;">Or reach me directly using the email button below</li>
+      </ul>
+
+      <!-- DAILY ALLOWANCE -->
+      <div class="msg-quota" id="msgQuota">
+        <div class="msg-quota-pips" id="msgQuotaPips" aria-hidden="true">
+          <span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span>
+        </div>
+        <span class="msg-quota-text" id="msgQuotaText">5 messages left today</span>
+      </div>
+
+      <div class="msg-actions">
+        <button class="btn-primary msg-primary" id="msgPrimary">Done</button>
+        <a class="msg-secondary" id="msgSecondary" href="mailto:timothy.kioko001@gmail.com" hidden>Email me directly</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
   <footer class="site-footer">
     <div class="footer-inner">
 
@@ -228,14 +334,11 @@
         <!-- BRAND -->
         <div class="footer-brand reveal">
           <a href="index.html#top" class="footer-logo" aria-label="TIM.dev home">
-            <!-- Recreated logo mark: hexagon ring + interlocking spool core -->
             <span class="footer-logo-tile">
               <svg class="footer-logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- thick hexagon ring (matches logo's outer band) -->
                 <path class="logo-hex"
                   d="M60 10 L103 34.5 L103 85.5 L60 110 L17 85.5 L17 34.5 Z"
                   stroke="#3ec878" stroke-width="11" stroke-linejoin="round"/>
-                <!-- interlocking core: top bar + vertical spool (the 'T') -->
                 <g class="logo-core">
                   <rect x="40" y="40" width="40" height="11" rx="1.5" fill="#5dde8e"/>
                   <rect x="53.5" y="40" width="13" height="40" rx="1.5" fill="#3ec878"/>
@@ -346,7 +449,7 @@
 
     <!-- BOTTOM BAR -->
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 <span>Timothy K. Mule</span> — All rights reserved.</div>
+      <div class="footer-copy">© 2026 <span>Timothy K. Mule</span> — All rights reserved.</div>
       <div class="footer-meta">
         <span>Built with Laravel-grade discipline</span>
         <span class="footer-meta-sep">·</span>
@@ -361,6 +464,7 @@
   </footer>
 
 <script src="scripts.js"></script>
+<script src="contacts.js"></script>
 
 </body>
 </html>

@@ -49,7 +49,7 @@
   background-repeat: repeat;
   mask-image: linear-gradient(to bottom, transparent, black 32%, black);
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 32%, black);
-  animation: footerDrift 90s linear infinite;
+  animation: footerDrift 30s linear infinite;
 }
 
 /* Each layer drifts a full tile in a unique direction, so the parallax
@@ -369,14 +369,13 @@
   letter-spacing: 0.02em;
   color: transparent;
   -webkit-text-stroke: 1px rgba(61,200,120,0.14);
-  text-stroke: 1px rgba(61,200,120,0.14);
+  text-wrap-style: 2px rgba(61,200,120,0.14);
   user-select: none;
   white-space: nowrap;
 }
 .footer-wordmark-text span {
   font-style: italic;
   -webkit-text-stroke: 1px rgba(200,168,75,0.18);
-  text-stroke: 1px rgba(200,168,75,0.18);
 }
 
 /* ── BOTTOM BAR ── */
