@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub — TIM.DEV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="footer.css"/>
+  <link rel="stylesheet" href="github.css"/>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">TIM.dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+    <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta">Hire Me</a>
+
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- MOBILE MENU -->
+    <div class="nav-mobile" id="navMobile">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
+        <li><a href="index.html#services" onclick="closeMobileNav()">Services</a></li>
+        <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+        <li><a href="projects.html" onclick="closeMobileNav()">Projects</a></li>
+        <li><a href="skills.html" onclick="closeMobileNav()">Skills</a></li>
+        <li><a href="contacts.html" onclick="closeMobileNav()">Contact</a></li>
+      </ul>
+      <a href="mailto:timothy.kioko001@gmail.com" class="nav-cta" style="display:inline-flex;">Hire Me</a>
+    </div>
+  </nav>
+
+  <!-- ════════ RECEPTION DESK ════════ -->
+  <main class="gh-page">
+
+    <!-- CENTERED MARK -->
+    <div class="gh-mark-wrap gh-enter" style="--enter-i: 0;">
+      <div class="gh-ring gh-ring-outer" aria-hidden="true"></div>
+      <div class="gh-ring gh-ring-inner" aria-hidden="true"></div>
+      <div class="gh-mark-tile">
+        <svg class="gh-mark" width="56" height="56" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05A9.4 9.4 0 0112 6.84c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- STATUS BADGE -->
+    <div class="gh-status gh-enter" style="--enter-i: 1;">
+      <span class="dot-gold"></span>
+      Temporarily private
+    </div>
+
+    <!-- MESSAGE -->
+    <h1 class="gh-title gh-enter" style="--enter-i: 2;">
+      My GitHub is taking<br><span>a short break.</span>
+    </h1>
+
+    <p class="gh-lede gh-enter" style="--enter-i: 3;">
+      The repositories are private for now while I finish some client and capstone projects,      but nothing is locked away. My projects, skills and case studies are all still here
+      on this site, and I'm happy to open the code up for you personally. Just ask.
+    </p>
+
+    <!-- ACTIONS -->
+    <div class="gh-actions gh-enter" style="--enter-i: 4;">
+      <button type="button" class="btn-primary" id="ghRequestBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="5" y="11" width="14" height="9" rx="1.5"/>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+        </svg>
+        Request GitHub Access
+      </button>
+      <a href="projects.html" class="btn-ghost">
+        See my projects instead
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ALTERNATIVE ROUTES -->
+    <div class="gh-routes gh-enter" style="--enter-i: 5;">
+      <a href="mailto:timothy.kioko001@gmail.com" class="gh-route">
+        <span class="gh-route-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 7l-10 6L2 7"/>
+          </svg>
+        </span>
+        <span class="gh-route-text">
+          <span class="gh-route-label">Email me directly</span>
+          <span class="gh-route-value">timothy.kioko001@gmail.com</span>
+        </span>
+        <svg class="gh-route-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <a href="https://www.linkedin.com/in/timothy-kioko-11363718b" target="_blank" rel="noopener" class="gh-route">
+        <span class="gh-route-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </span>
+        <span class="gh-route-text">
+          <span class="gh-route-label">Connect on LinkedIn</span>
+          <span class="gh-route-value">linkedin.com/in/timothy-kioko</span>
+        </span>
+        <svg class="gh-route-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- REOPEN NOTICE -->
+    <div class="gh-notice gh-enter" style="--enter-i: 6;">
+      <span class="gh-notice-line" aria-hidden="true"></span>
+      <p class="gh-notice-text">
+        I'll reopen my GitHub on <strong>7th September 2026</strong>  or sooner, just ask!
+      </p>
+      <span class="gh-notice-count" id="ghCountdown"></span>
+      <span class="gh-notice-line" aria-hidden="true"></span>
+    </div>
+
+  </main>
+
+  <!-- ════════ REQUEST ACCESS MODAL ════════ -->
+  <div class="gh-overlay" id="ghOverlay" role="dialog" aria-modal="true" aria-labelledby="ghModalTitle" hidden>
+    <div class="gh-modal" id="ghModal">
+      <button class="gh-close" id="ghClose" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- VIEW 1 — FORM -->
+      <div class="gh-view gh-view-form" id="ghViewForm">
+        <span class="gh-modal-eyebrow">Access request</span>
+        <h2 class="gh-modal-title" id="ghModalTitle">Where should I send the invite?</h2>
+        <p class="gh-modal-sub">Leave your email and I'll grant you access personally, usually within a day.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="ghEmail">Your Email</label>
+          <input class="form-input" type="email" id="ghEmail" placeholder="you@company.com" autocomplete="email" />
+          <span class="gh-field-error" id="ghEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label" id="ghUrgencyLabel">How soon do you need it?</span>
+          <div class="gh-urgency" role="radiogroup" aria-labelledby="ghUrgencyLabel" id="ghUrgency">
+            <button type="button" class="gh-urgency-opt selected" role="radio" aria-checked="true" data-value="Just curious">Just curious</button>
+            <button type="button" class="gh-urgency-opt" role="radio" aria-checked="false" data-value="This week">This week</button>
+            <button type="button" class="gh-urgency-opt" role="radio" aria-checked="false" data-value="Urgent">Urgent</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ghReason">Reason <em class="gh-label-hint">(optional)</em></label>
+          <textarea class="form-input gh-reason" id="ghReason" maxlength="400"
+            placeholder="e.g. Reviewing your work for a role, checking for specific codebase..."></textarea>
+        </div>
+
+        <!-- honeypot — invisible to humans, catches bots -->
+        <input type="text" id="ghCompany" class="gh-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <button type="button" class="btn-primary gh-send" id="ghSend">
+          <span class="gh-send-spinner" aria-hidden="true"></span>
+          <span id="ghSendLabel">Send Request</span>
+          <svg id="ghSendArrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- VIEW 2 — RESULT -->
+      <div class="gh-view gh-view-result" id="ghViewResult" hidden>
+        <div class="gh-result-icon">
+          <svg class="gh-result-svg gh-result-success" viewBox="0 0 52 52" aria-hidden="true">
+            <circle class="gh-ring-draw" cx="26" cy="26" r="24" fill="none"/>
+            <path class="gh-check-draw" fill="none" d="M14 27l8 8 16-17"/>
+          </svg>
+          <svg class="gh-result-svg gh-result-issue" viewBox="0 0 52 52" aria-hidden="true">
+            <circle class="gh-ring-draw" cx="26" cy="26" r="24" fill="none"/>
+            <path class="gh-mark-draw" fill="none" d="M26 14v16"/>
+            <circle class="gh-dot-draw" cx="26" cy="37" r="1.8"/>
+          </svg>
+        </div>
+
+        <h2 class="gh-modal-title" id="ghResultTitle">Request sent</h2>
+        <p class="gh-modal-sub" id="ghResultBody">You'll hear from me shortly with your invite.</p>
+
+        <ul class="gh-result-steps" id="ghResultSteps" hidden>
+          <li style="--step-i: 0;">Check that you're connected to the internet</li>
+          <li style="--step-i: 1;">Give it a moment, then try once again</li>
+          <li style="--step-i: 2;">Or email me directly</li>
+        </ul>
+
+        <div class="gh-result-actions">
+          <button class="btn-primary" id="ghResultPrimary">Done</button>
+          <a class="gh-result-email" id="ghResultEmail" href="mailto:timothy.kioko001@gmail.com?subject=GitHub%20Access%20Request" hidden>Email me directly</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <!-- BRAND -->
+        <div class="footer-brand reveal">
+          <a href="index.html#top" class="footer-logo" aria-label="TIM.dev home">
+            <span class="footer-logo-tile">
+              <svg class="footer-logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path class="logo-hex"
+                  d="M60 10 L103 34.5 L103 85.5 L60 110 L17 85.5 L17 34.5 Z"
+                  stroke="#3ec878" stroke-width="11" stroke-linejoin="round"/>
+                <g class="logo-core">
+                  <rect x="40" y="40" width="40" height="11" rx="1.5" fill="#5dde8e"/>
+                  <rect x="53.5" y="40" width="13" height="40" rx="1.5" fill="#3ec878"/>
+                </g>
+              </svg>
+            </span>
+            <span class="footer-logo-word">TIM<span>.dev</span></span>
+          </a>
+
+          <p class="footer-tagline">
+            I Building
+            secure, reliable systems for Kenya's growing businesses. This portfolio is a snapshot of job and skills.
+          </p>
+
+          <div class="footer-status">
+            <span class="footer-dot"></span>
+            Available for freelance
+          </div>
+        </div>
+
+        <!-- NAVIGATE -->
+        <nav class="footer-col reveal d-1" aria-label="Footer navigation">
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </nav>
+
+        <!-- SERVICES -->
+        <nav class="footer-col reveal d-2" aria-label="Services">
+          <div class="footer-col-title">Expertise</div>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">Network Design</a></li>
+            <li><a href="index.html#services">Database Design</a></li>
+            <li><a href="index.html#services">DevOps</a></li>
+            <li><a href="index.html#services">Software Security</a></li>
+          </ul>
+        </nav>
+
+        <!-- CONTACT -->
+        <div class="footer-col reveal d-3">
+          <div class="footer-col-title">Get in Touch</div>
+
+          <a href="mailto:timothy.kioko001@gmail.com" class="footer-contact-row">
+            <span class="footer-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 6L2 7"/>
+              </svg>
+            </span>
+            <span class="footer-contact-text">timothy.kioko001@gmail.com</span>
+          </a>
+
+          <a href="index.html" target="_blank" rel="noopener" class="footer-contact-row">
+            <span class="footer-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+              </svg>
+            </span>
+            <span class="footer-contact-text">devflexx.com</span>
+          </a>
+
+          <div class="footer-contact-row" style="cursor:default;">
+            <span class="footer-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span class="footer-contact-text">Nairobi, Kenya</span>
+          </div>
+
+          <!-- SOCIALS -->
+          <div class="footer-socials">
+            <a href="github.html" class="footer-social" aria-label="GitHub">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05A9.4 9.4 0 0112 6.84c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/timothy-kioko-11363718b" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V10.5H5.67v7.84h2.67zM7 9.34a1.55 1.55 0 100-3.1 1.55 1.55 0 000 3.1zm11.34 9V14c0-2.3-1.23-3.37-2.87-3.37-1.32 0-1.91.73-2.24 1.24v-1.06h-2.67v7.84h2.67v-4.38c0-.23.02-.46.09-.63.18-.46.6-.94 1.31-.94.92 0 1.29.7 1.29 1.73v4.22h2.67z"/>
+              </svg>
+            </a>
+            <a href="mailto:timothy.kioko001@gmail.com" class="footer-social" aria-label="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 6L2 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BIG WORDMARK -->
+      <div class="footer-wordmark" aria-hidden="true">
+        <div class="footer-wordmark-text">TIM<span>.dev</span></div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <span>Timothy K. Mule</span> --- All rights reserved.</div>
+      <div class="footer-meta">
+        <span>Built with production-grade discipline</span>
+        <span class="footer-meta-sep">·</span>
+        <a href="#top" class="footer-totop">
+          Back to top
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+<script src="scripts.js"></script>
+<script src="github+email.js"></script>
+
+</body>
+</html>

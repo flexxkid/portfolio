@@ -146,7 +146,7 @@
     verifyText.classList.remove('active');
     verifyText.textContent = 'Ready to download';
     startBtn.disabled = false;
-    startLabel.textContent = 'Download now';
+    startLabel.textContent = 'Coming Soon';
   }
 
   function openModal(card) {
