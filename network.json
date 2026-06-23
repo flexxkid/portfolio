@@ -5,7 +5,7 @@
     "title": "Enterprise Segmented Architecture Design",
     "tool": "cisco",
     "shortDescription": "Designed a 3-VLAN isolated topology with 802.1Q trunking and strict access control policies.",
-    "thumbnail": "Elements/packetetracer1.png",
+    "thumbnail": "Elements/PacketTracerThumbnail.png",
     "documentationHtml": "<p><strong>Problem:</strong> A business operating on a flat network exposed sensitive core financial and HR data to the guest Wi-Fi broadcast domain, violating security principles.</p><p><strong>Solution:</strong> Built a Router-on-a-Stick (RoaS) topology separating traffic into VLAN 10 (HR), VLAN 20 (Finance), and VLAN 30 (Guest). Applied extended ACLs to drop guest traffic attempting to cross subnets.</p><p><strong>Relationship:</strong> While Cisco Packet Tracer simulated the operational logic and visual dropping of unauthorized packets, raw traffic captures from this layout were passed to Wireshark for deep forensic validation.</p><p><strong>Key Config:</strong></p><pre><code>interface g0/0.30\n encapsulation dot1Q 30\n ip address 192.168.30.1 255.255.255.0\n ip access-group BLOCK_GUEST_IN in\n!\nip access-list extended BLOCK_GUEST_IN\n deny ip 192.168.30.0 0.0.0.255 192.168.10.0 0.0.0.255\n permit ip any any</code></pre>",
     "topologyImage": "Elements/packetetracer1.png",
     "files": {
@@ -19,7 +19,7 @@
     "title": "Forensic Access Control Policy Verification",
     "tool": "wireshark",
     "shortDescription": "Analyzed packet captures to forensically verify broadcast isolation and ACL drop behavior.",
-    "thumbnail": "Elements/wiresharkimage.png",
+    "thumbnail": "Elements/WiresharkThumbnail.png",
     "documentationHtml": "<p><strong>Symptom:</strong> Verification required to guarantee that subnets are completely isolated from broadcast leaks and that malicious traversal attempts are actively blocked by the firewall layer.</p><p><strong>Capture Filters:</strong> <code>bootp or dhcp</code> (to analyze broadcast limits) and <code>icmp</code> (to verify dropped packets).</p><p><strong>Relationship:</strong> This analysis serves as the empirical audit for the 'Enterprise Segmented Architecture' project built in Packet Tracer. It captures the exact byte-level evidence that the network configurations perform correctly in production.</p><p><strong>Finding:</strong> Captured explicit <code>ICMP Type 3, Code 13</code> (Communication Administratively Prohibited) packets originating from the gateway, proving the Packet Tracer ACL is successfully executing silent drops on unauthorized lateral movement.</p>",
     "topologyImage": "Elements/wiresharkimage.png",
     "files": {
